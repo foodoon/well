@@ -1,0 +1,35 @@
+新增
+
+<form name="orderForm" action="$!homeServer.getURI("order/doCreate.htm")" method="post">
+  <table class="table">
+    #springBind("orderForm.goodsId")
+    <tr>
+        <td>商品ID</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("orderForm.userId")
+    <tr>
+        <td>用户ID</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("orderForm.leaveMsg")
+    <tr>
+        <td>留言</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+
+	  <tr>
+	  <td colspan="2">
+	  <input type="submit" class="btn" value="提交"/></td>
+	  </tr>
+  </table>
+</form>

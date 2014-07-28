@@ -1,0 +1,17 @@
+$!challengeMsg详情
+  <table class="table">
+                <tr>
+              <td>约战ID</td>
+              <td>
+                  $!challengeMsgDO.challengeId
+              </td>
+          </tr>
+
+                <tr>
+              <td>评论内容</td>
+              <td>
+                  $!challengeMsgDO.msg
+              </td>
+          </tr>
+
+        </table>

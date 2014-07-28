@@ -1,0 +1,24 @@
+$!order详情
+  <table class="table">
+                <tr>
+              <td>商品ID</td>
+              <td>
+                  $!orderDO.goodsId
+              </td>
+          </tr>
+
+                <tr>
+              <td>用户ID</td>
+              <td>
+                  $!orderDO.userId
+              </td>
+          </tr>
+
+                <tr>
+              <td>留言</td>
+              <td>
+                  $!orderDO.leaveMsg
+              </td>
+          </tr>
+
+        </table>

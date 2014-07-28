@@ -1,0 +1,35 @@
+新增
+
+<form name="courtApplyForm" action="$!homeServer.getURI("courtApply/doCreate.htm")" method="post">
+  <table class="table">
+    #springBind("courtApplyForm.userId")
+    <tr>
+        <td>用户ID</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("courtApplyForm.courtId")
+    <tr>
+        <td>场地ID</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("courtApplyForm.bookingTime")
+    <tr>
+        <td>预定日期</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+
+	  <tr>
+	  <td colspan="2">
+	  <input type="submit" class="btn" value="提交"/></td>
+	  </tr>
+  </table>
+</form>
