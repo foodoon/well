@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS `demo`;
-CREATE DATABASE `demo`;
-use `demo`;
+DROP DATABASE IF EXISTS `game`;
+CREATE DATABASE `game`;
+use `game`;
 
 
-delete from mysql.user where User = 'demo_user';
-grant select,update,delete,insert on `demo`.* to 'demo_user'@'%' identified by 'demo_pwd';
-grant select,update,delete,insert on `demo`.* to 'demo_user'@'localhost' identified by 'demo_pwd';
+delete from mysql.user where User = 'game_user';
+grant select,update,delete,insert on `game`.* to 'news_user'@'%' identified by 'game_pwd';
+grant select,update,delete,insert on `game`.* to 'news_user'@'localhost' identified by 'game_pwd';
 flush privileges;
