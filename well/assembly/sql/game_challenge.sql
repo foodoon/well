@@ -16,10 +16,10 @@ Date: 2014-07-28 06:14:13
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `game_challenge`
+-- Table structure for `well_challenge`
 -- ----------------------------
-DROP TABLE IF EXISTS `challenge`;
-CREATE TABLE `challenge` (
+DROP TABLE IF EXISTS `well_challenge`;
+CREATE TABLE `well_challenge` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `court_id` int(11) NOT NULL,
@@ -34,14 +34,14 @@ CREATE TABLE `challenge` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_challenge
+-- Records of well_challenge
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_challenge_accept`
+-- Table structure for `well_challenge_accept`
 -- ----------------------------
-DROP TABLE IF EXISTS `challenge_accept`;
-CREATE TABLE `challenge_accept` (
+DROP TABLE IF EXISTS `well_challenge_accept`;
+CREATE TABLE `well_challenge_accept` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `challenge_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
@@ -55,14 +55,14 @@ CREATE TABLE `challenge_accept` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_challenge_accept
+-- Records of well_challenge_accept
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_challenge_msg`
+-- Table structure for `well_challenge_msg`
 -- ----------------------------
-DROP TABLE IF EXISTS `challenge_msg`;
-CREATE TABLE `challenge_msg` (
+DROP TABLE IF EXISTS `well_challenge_msg`;
+CREATE TABLE `well_challenge_msg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `challenge_id` int(11) NOT NULL,
   `msg` varchar(1024) NOT NULL,
@@ -73,14 +73,14 @@ CREATE TABLE `challenge_msg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_challenge_msg
+-- Records of well_challenge_msg
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_court`
+-- Table structure for `well_court`
 -- ----------------------------
-DROP TABLE IF EXISTS `court`;
-CREATE TABLE `court` (
+DROP TABLE IF EXISTS `well_court`;
+CREATE TABLE `well_court` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) NOT NULL,
   `address` varchar(1024) DEFAULT NULL,
@@ -97,14 +97,14 @@ CREATE TABLE `court` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_court
+-- Records of well_court
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_court_apply`
+-- Table structure for `well_court_apply`
 -- ----------------------------
-DROP TABLE IF EXISTS `court_apply`;
-CREATE TABLE `court_apply` (
+DROP TABLE IF EXISTS `well_court_apply`;
+CREATE TABLE `well_court_apply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `court_id` int(11) NOT NULL,
@@ -116,14 +116,14 @@ CREATE TABLE `court_apply` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_court_apply
+-- Records of well_court_apply
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_goods`
+-- Table structure for `well_goods`
 -- ----------------------------
-DROP TABLE IF EXISTS `goods`;
-CREATE TABLE `goods` (
+DROP TABLE IF EXISTS `well_goods`;
+CREATE TABLE `well_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_name` varchar(64) NOT NULL,
   `goods_desc` varchar(1024) DEFAULT NULL,
@@ -136,14 +136,14 @@ CREATE TABLE `goods` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_goods
+-- Records of well_goods
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_order`
+-- Table structure for `well_order`
 -- ----------------------------
-DROP TABLE IF EXISTS `order_info`;
-CREATE TABLE `order_info` (
+DROP TABLE IF EXISTS `well_order`;
+CREATE TABLE `well_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -155,14 +155,14 @@ CREATE TABLE `order_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_order
+-- Records of well_order
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_team`
+-- Table structure for `well_team`
 -- ----------------------------
-DROP TABLE IF EXISTS `team`;
-CREATE TABLE `team` (
+DROP TABLE IF EXISTS `well_team`;
+CREATE TABLE `well_team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `desc` varchar(1024) DEFAULT NULL,
@@ -174,14 +174,14 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_team
+-- Records of well_team
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_team_apply`
+-- Table structure for `well_team_apply`
 -- ----------------------------
-DROP TABLE IF EXISTS `team_apply`;
-CREATE TABLE `team_apply` (
+DROP TABLE IF EXISTS `well_team_apply`;
+CREATE TABLE `well_team_apply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `team_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -193,14 +193,14 @@ CREATE TABLE `team_apply` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_team_apply
+-- Records of well_team_apply
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_team_recruit`
+-- Table structure for `well_team_recruit`
 -- ----------------------------
-DROP TABLE IF EXISTS `team_recruit`;
-CREATE TABLE `team_recruit` (
+DROP TABLE IF EXISTS `well_team_recruit`;
+CREATE TABLE `well_team_recruit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `desc` varchar(1024) DEFAULT NULL,
@@ -211,16 +211,19 @@ CREATE TABLE `team_recruit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_team_recruit
+-- Records of well_team_recruit
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `game_user`
+-- Table structure for `well_user`
 -- ----------------------------
-DROP TABLE IF EXISTS `user_info`;
-CREATE TABLE `user_info` (
+DROP TABLE IF EXISTS `well_user`;
+CREATE TABLE `well_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(16) NOT NULL,
+  `real_name` varchar(16) NOT NULL,
+  `email` varchar(16) NOT NULL,
+  `address` varchar(1024) NOT NULL,
   `password` varchar(32) NOT NULL,
   `phone` varchar(16) NOT NULL,
   `ground_type_of_enjoy` varchar(32) DEFAULT NULL,
@@ -234,5 +237,5 @@ CREATE TABLE `user_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of game_user
+-- Records of well_user
 -- ----------------------------

@@ -2,6 +2,16 @@
 
 <configuration>
  <mappers>
-  <mapper resource="mybatis/DemoDOMapper.xml"/>
+  <mapper resource="mybatis/ChallengeDOMapper.xml"/>
+  <mapper resource="mybatis/ChallengeAcceptDOMapper.xml"/>
+  <mapper resource="mybatis/ChallengeMsgDOMapper.xml"/>
+  <mapper resource="mybatis/CourtDOMapper.xml"/>
+  <mapper resource="mybatis/CourtApplyDOMapper.xml"/>
+  <mapper resource="mybatis/GoodsDOMapper.xml"/>
+  <mapper resource="mybatis/OrderDOMapper.xml"/>
+  <mapper resource="mybatis/TeamDOMapper.xml"/>
+  <mapper resource="mybatis/TeamApplyDOMapper.xml"/>
+  <mapper resource="mybatis/TeamRecruitDOMapper.xml"/>
+  <mapper resource="mybatis/UserDOMapper.xml"/>
  </mappers>
 </configuration>

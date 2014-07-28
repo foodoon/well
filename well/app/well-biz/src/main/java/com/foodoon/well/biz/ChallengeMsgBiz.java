@@ -1,10 +1,10 @@
 package com.foodoon.well.biz;
 
-import com.foodoon.well.dao.domain.DemoDO;
+import com.foodoon.well.dao.domain.ChallengeMsgDO;
 import com.foodoon.tools.web.page.BaseQuery;
 import com.foodoon.tools.web.page.BizResult;
 
-public interface DemoBiz {
+public interface ChallengeMsgBiz {
 
         BizResult detail(int id);
 
@@ -12,8 +12,8 @@ public interface DemoBiz {
 
         BizResult delete(int id);
 
-        BizResult create(DemoDO demoDO);
+        BizResult create(ChallengeMsgDO challengeMsgDO);
 
-        BizResult update(DemoDO demoDO);
+        BizResult update(ChallengeMsgDO challengeMsgDO);
 
 }

@@ -13,4 +13,13 @@
 
 	<name>well-dao</name>
 	<url>http://maven.apache.org</url>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.foodoon.well.util</groupId>
+            <artifactId>well-util</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>
