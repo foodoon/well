@@ -1,7 +1,12 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Date;
 import java.util.List;
 
+import com.foodoon.well.util.AppRequestMapping;
+import com.foodoon.well.util.CommonResultCode;
+
+import com.foodoon.well.util.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,14 +66,19 @@ public class UserBizImpl implements UserBiz{
         return bizResult;
     }
 
+    @AppRequestMapping(apiName ="user.create",apiVersion = "1.0")
     public BizResult create(UserDO userDO) {
         BizResult bizResult = new BizResult();
         try {
-            int id = userDOMapper.insert(userDO);
-            bizResult.data.put("id", id);
+            userDO.setGmtCreate(new Date());
+            userDO.setGmtModify(new Date());
+            int count = userDOMapper.insert(userDO);
+            bizResult.data.put("count", userDO.getId());
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create User error", e);
+            bizResult.msg =ErrorCode.getMessage(CommonResultCode.DATABASE_ERRROR);
+            bizResult.code=CommonResultCode.DATABASE_ERRROR;
         }
         return bizResult;
     }
@@ -76,8 +86,8 @@ public class UserBizImpl implements UserBiz{
     public BizResult update(UserDO userDO) {
         BizResult bizResult = new BizResult();
         try {
-            int id = userDOMapper.updateByPrimaryKeySelective(userDO);
-            bizResult.data.put("id", id);
+            int count = userDOMapper.updateByPrimaryKeySelective(userDO);
+            bizResult.data.put("count", count);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update User error", e);

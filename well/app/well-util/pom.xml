@@ -17,5 +17,10 @@
             <groupId>com.foodoon.gooda</groupId>
             <artifactId>gooda</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.36</version>
+        </dependency>
 	</dependencies>
 </project>

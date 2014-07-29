@@ -13,6 +13,16 @@ public class AppRequest {
 
     private Object[] resolvePrams;
 
+    private AppHandle appHandle;
+
+    public AppHandle getAppHandle() {
+        return appHandle;
+    }
+
+    public void setAppHandle(AppHandle appHandle) {
+        this.appHandle = appHandle;
+    }
+
     public AppRequestKey getAppRequestKey() {
         return appRequestKey;
     }

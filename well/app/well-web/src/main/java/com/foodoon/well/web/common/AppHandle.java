@@ -1,5 +1,7 @@
 package com.foodoon.well.web.common;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+
 import java.lang.reflect.Method;
 
 /**
@@ -35,5 +37,9 @@ public class AppHandle {
 
     public void setBeanName(String beanName) {
         this.beanName = beanName;
+    }
+
+    public String toString(){
+        return ReflectionToStringBuilder.reflectionToString(this);
     }
 }

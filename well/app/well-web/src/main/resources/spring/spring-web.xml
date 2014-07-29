@@ -33,7 +33,7 @@
 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-		p:basenames="${htdocs_root}/messages/error" p:defaultEncoding="UTF-8"
+		p:basenames="classpath:messages/error/common" p:defaultEncoding="UTF-8"
 		p:cacheSeconds="0" />
 
 	<bean id="velocityConfig"
