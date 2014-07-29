@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.Size;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.UserDO;
@@ -145,6 +146,10 @@ public class UserForm {
         userDO.setStatus(this.status);
         userDO.setImg(this.img);
         return userDO;
+    }
+
+    public String toString(){
+        return ReflectionToStringBuilder.toString(this);
     }
 
 }

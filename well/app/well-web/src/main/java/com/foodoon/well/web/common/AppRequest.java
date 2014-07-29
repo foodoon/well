@@ -1,20 +1,39 @@
 package com.foodoon.well.web.common;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.Map;
 
 /**
  * Created by foodoon on 2014/7/29.
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface AppRequest {
+public class AppRequest {
 
-    public String apiVersion();
+    private AppRequestKey appRequestKey;
 
-    public String apiName();
+    private Map<String,String> requestParams;
 
+    private Object[] resolvePrams;
 
+    public AppRequestKey getAppRequestKey() {
+        return appRequestKey;
+    }
+
+    public void setAppRequestKey(AppRequestKey appRequestKey) {
+        this.appRequestKey = appRequestKey;
+    }
+
+    public Map<String, String> getRequestParams() {
+        return requestParams;
+    }
+
+    public void setRequestParams(Map<String, String> requestParams) {
+        this.requestParams = requestParams;
+    }
+
+    public Object[] getResolvePrams() {
+        return resolvePrams;
+    }
+
+    public void setResolvePrams(Object[] resolvePrams) {
+        this.resolvePrams = resolvePrams;
+    }
 }
