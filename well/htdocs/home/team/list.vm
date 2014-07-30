@@ -12,7 +12,7 @@
 #foreach($f in $teamDOList)
   <tr>
                <td> $!f.name</td>
-               <td> $!f.desc</td>
+               <td> $!f.teamDesc</td>
                <td> $!f.canJoin</td>
           <td><a href="$!homeServer.getURI("team/edit.htm").addQueryData('id',"$!f.id")" >编辑</a></td>
     <td><a href="$!homeServer.getURI("team/detail.htm").addQueryData('id',"$!f.id")" >查看详情</a></td>
@@ -20,3 +20,5 @@
  </tr>
 #end
 </table>
+
+$tile.load('home/common/page.vm').param('query',$query).param('path','team/list.htm')

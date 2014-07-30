@@ -35,7 +35,7 @@ public class ChallengeAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = challengeBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class ChallengeAction {
         ChallengeDO challengeDO = challengeForm.toDO();
         BizResult bizResult = challengeBiz.create(challengeDO);
         if (bizResult.success) {
-            return "redirect:/challenge/list.vm";
+            return "redirect:/challenge/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +105,19 @@ public class ChallengeAction {
         ChallengeDO challengeDO = challengeEditForm.toDO();
         BizResult bizResult = challengeBiz.update(challengeDO);
         if (bizResult.success) {
-            return "redirect:/challenge/list.vm";
+            return "redirect:/challenge/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "challenge/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "challenge/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = challengeBiz.delete(id);
         if (bizResult.success) {
-            return "challenge/list.vm";
+            return "redirect:/challenge/list.htm";
         } else {
             return "common/error.vm";
         }

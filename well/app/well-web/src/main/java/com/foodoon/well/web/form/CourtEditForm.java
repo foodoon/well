@@ -31,7 +31,7 @@ public class CourtEditForm extends CourtForm {
         this.setOpenTime(courtDO.getOpenTime());
         this.setUserId(courtDO.getUserId());
         this.setStatus(courtDO.getStatus());
-        this.setDesc(courtDO.getDesc());
+        this.setCourtDesc(courtDO.getCourtDesc());
         this.setSquare(courtDO.getSquare());
     }
 

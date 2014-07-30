@@ -10,7 +10,7 @@
             #foreach($error in $status.errorMessages) <b>$error</b>  #end
         </td>
     </tr>
-    #springBind("teamForm.desc")
+    #springBind("teamForm.teamDesc")
     <tr>
         <td>简单介绍</td>
         <td>

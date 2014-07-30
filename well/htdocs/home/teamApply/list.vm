@@ -20,3 +20,5 @@
  </tr>
 #end
 </table>
+
+$tile.load('home/common/page.vm').param('query',$query).param('path','teamApply/list.htm')

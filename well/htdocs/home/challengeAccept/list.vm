@@ -24,3 +24,5 @@
  </tr>
 #end
 </table>
+
+$tile.load('home/common/page.vm').param('query',$query).param('path','challengeAccept/list.htm')

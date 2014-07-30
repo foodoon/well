@@ -35,7 +35,8 @@ public class TeamAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+
+        modelMap.put("query",baseQuery);
         BizResult bizResult = teamBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +90,7 @@ public class TeamAction {
         TeamDO teamDO = teamForm.toDO();
         BizResult bizResult = teamBiz.create(teamDO);
         if (bizResult.success) {
-            return "redirect:/team/list.vm";
+            return "redirect:/team/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +106,19 @@ public class TeamAction {
         TeamDO teamDO = teamEditForm.toDO();
         BizResult bizResult = teamBiz.update(teamDO);
         if (bizResult.success) {
-            return "redirect:/team/list.vm";
+            return "redirect:/team/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "team/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "team/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = teamBiz.delete(id);
         if (bizResult.success) {
-            return "team/list.vm";
+            return "redirect:/team/list.htm";
         } else {
             return "common/error.vm";
         }

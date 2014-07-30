@@ -45,7 +45,7 @@ $!court详情
                 <tr>
               <td>球场介绍</td>
               <td>
-                  $!courtDO.desc
+                  $!courtDO.courtDesc
               </td>
           </tr>
 

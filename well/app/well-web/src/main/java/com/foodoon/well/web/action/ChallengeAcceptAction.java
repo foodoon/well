@@ -35,7 +35,7 @@ public class ChallengeAcceptAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = challengeAcceptBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class ChallengeAcceptAction {
         ChallengeAcceptDO challengeAcceptDO = challengeAcceptForm.toDO();
         BizResult bizResult = challengeAcceptBiz.create(challengeAcceptDO);
         if (bizResult.success) {
-            return "redirect:/challengeAccept/list.vm";
+            return "redirect:/challengeAccept/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +105,19 @@ public class ChallengeAcceptAction {
         ChallengeAcceptDO challengeAcceptDO = challengeAcceptEditForm.toDO();
         BizResult bizResult = challengeAcceptBiz.update(challengeAcceptDO);
         if (bizResult.success) {
-            return "redirect:/challengeAccept/list.vm";
+            return "redirect:/challengeAccept/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "challengeAccept/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "challengeAccept/doDelete.htm", method = RequestMethod.GET)
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = challengeAcceptBiz.delete(id);
         if (bizResult.success) {
-            return "challengeAccept/list.vm";
+            return "redirect:/challengeAccept/list.htm";
         } else {
             return "common/error.vm";
         }

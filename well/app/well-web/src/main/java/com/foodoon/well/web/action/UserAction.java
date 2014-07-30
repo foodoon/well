@@ -35,7 +35,8 @@ public class UserAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+
+        modelMap.put("query",baseQuery);
         BizResult bizResult = userBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +90,7 @@ public class UserAction {
         UserDO userDO = userForm.toDO();
         BizResult bizResult = userBiz.create(userDO);
         if (bizResult.success) {
-            return "redirect:/user/list.vm";
+            return "redirect:/user/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +106,19 @@ public class UserAction {
         UserDO userDO = userEditForm.toDO();
         BizResult bizResult = userBiz.update(userDO);
         if (bizResult.success) {
-            return "redirect:/user/list.vm";
+            return "redirect:/user/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "user/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "user/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = userBiz.delete(id);
         if (bizResult.success) {
-            return "user/list.vm";
+            return "redirect:/user/list.htm";
         } else {
             return "common/error.vm";
         }

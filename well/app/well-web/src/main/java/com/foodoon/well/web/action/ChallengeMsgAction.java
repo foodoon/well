@@ -35,7 +35,7 @@ public class ChallengeMsgAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = challengeMsgBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class ChallengeMsgAction {
         ChallengeMsgDO challengeMsgDO = challengeMsgForm.toDO();
         BizResult bizResult = challengeMsgBiz.create(challengeMsgDO);
         if (bizResult.success) {
-            return "redirect:/challengeMsg/list.vm";
+            return "redirect:/challengeMsg/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,14 +105,14 @@ public class ChallengeMsgAction {
         ChallengeMsgDO challengeMsgDO = challengeMsgEditForm.toDO();
         BizResult bizResult = challengeMsgBiz.update(challengeMsgDO);
         if (bizResult.success) {
-            return "redirect:/challengeMsg/list.vm";
+            return "redirect:/challengeMsg/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "challengeMsg/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "challengeMsg/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = challengeMsgBiz.delete(id);

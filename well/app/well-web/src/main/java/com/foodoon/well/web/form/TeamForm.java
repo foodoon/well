@@ -1,9 +1,5 @@
 package com.foodoon.well.web.form;
 
-import java.util.Date;
-
-import javax.validation.constraints.Size;
-
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.TeamDO;
@@ -14,7 +10,7 @@ public class TeamForm {
     private String name;
 
     @NotEmpty(message = "{不能为空}")
-    private String desc;
+    private String teamDesc;
 
     @NotNull
     private Integer canJoin;
@@ -27,12 +23,12 @@ public class TeamForm {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getTeamDesc() {
+        return teamDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setTeamDesc(String desc) {
+        this.teamDesc = desc;
     }
 
     public Integer getCanJoin() {
@@ -46,7 +42,7 @@ public class TeamForm {
     public TeamDO toDO() {
         TeamDO teamDO = new TeamDO();
         teamDO.setName(this.name);
-        teamDO.setDesc(this.desc);
+        teamDO.setTeamDesc(this.teamDesc);
         teamDO.setCanJoin(this.canJoin);
         return teamDO;
     }

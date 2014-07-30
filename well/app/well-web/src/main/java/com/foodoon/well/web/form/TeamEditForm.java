@@ -26,7 +26,7 @@ public class TeamEditForm extends TeamForm {
             return;
         }
         this.setName(teamDO.getName());
-        this.setDesc(teamDO.getDesc());
+        this.setTeamDesc(teamDO.getTeamDesc());
         this.setCanJoin(teamDO.getCanJoin());
     }
 

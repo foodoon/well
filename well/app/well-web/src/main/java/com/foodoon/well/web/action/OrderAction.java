@@ -35,7 +35,7 @@ public class OrderAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = orderBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class OrderAction {
         OrderDO orderDO = orderForm.toDO();
         BizResult bizResult = orderBiz.create(orderDO);
         if (bizResult.success) {
-            return "redirect:/order/list.vm";
+            return "redirect:/order/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +105,19 @@ public class OrderAction {
         OrderDO orderDO = orderEditForm.toDO();
         BizResult bizResult = orderBiz.update(orderDO);
         if (bizResult.success) {
-            return "redirect:/order/list.vm";
+            return "redirect:/order/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "order/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "order/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = orderBiz.delete(id);
         if (bizResult.success) {
-            return "order/list.vm";
+            return "redirect:/order/list.htm";
         } else {
             return "common/error.vm";
         }

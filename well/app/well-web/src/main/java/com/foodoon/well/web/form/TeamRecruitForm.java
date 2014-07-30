@@ -1,8 +1,6 @@
 package com.foodoon.well.web.form;
 
-import java.util.Date;
 
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -14,7 +12,7 @@ public class TeamRecruitForm {
     private Integer userId;
 
     @NotEmpty(message = "{不能为空}")
-    private String desc;
+    private String recruitDesc;
 
     public Integer getUserId() {
         return userId;
@@ -24,18 +22,18 @@ public class TeamRecruitForm {
         this.userId = userId;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRecruitDesc() {
+        return recruitDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setRecruitDesc(String desc) {
+        this.recruitDesc = desc;
     }
 
     public TeamRecruitDO toDO() {
         TeamRecruitDO teamRecruitDO = new TeamRecruitDO();
         teamRecruitDO.setUserId(this.userId);
-        teamRecruitDO.setDesc(this.desc);
+        teamRecruitDO.setRecruitDesc(this.recruitDesc);
         return teamRecruitDO;
     }
 

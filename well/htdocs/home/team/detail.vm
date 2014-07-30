@@ -10,7 +10,7 @@ $!team详情
                 <tr>
               <td>简单介绍</td>
               <td>
-                  $!teamDO.desc
+                  $!teamDO.teamDesc
               </td>
           </tr>
 

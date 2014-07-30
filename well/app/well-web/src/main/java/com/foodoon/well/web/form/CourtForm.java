@@ -29,7 +29,7 @@ public class CourtForm {
     private Integer status;
 
     @NotEmpty(message = "{不能为空}")
-    private String desc;
+    private String courtDesc;
 
     @NotEmpty(message = "{不能为空}")
     private String square;
@@ -82,12 +82,12 @@ public class CourtForm {
         this.status = status;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getCourtDesc() {
+        return courtDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setCourtDesc(String desc) {
+        this.courtDesc = desc;
     }
 
     public String getSquare() {
@@ -106,7 +106,7 @@ public class CourtForm {
         courtDO.setOpenTime(this.openTime);
         courtDO.setUserId(this.userId);
         courtDO.setStatus(this.status);
-        courtDO.setDesc(this.desc);
+        courtDO.setCourtDesc(this.courtDesc);
         courtDO.setSquare(this.square);
         return courtDO;
     }

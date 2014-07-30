@@ -50,7 +50,7 @@
             #foreach($error in $status.errorMessages) <b>$error</b>  #end
         </td>
     </tr>
-    #springBind("courtForm.desc")
+    #springBind("courtForm.courtDesc")
     <tr>
         <td>球场介绍</td>
         <td>

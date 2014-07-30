@@ -25,7 +25,7 @@
 		class="com.foodoon.mvc.runtime.core.spring.GudaPropertyConfigurer">
 		<property name="ignoreUnresolvablePlaceholders" value="false"></property>
 		<property name="fileEncoding" value="UTF-8"></property>
-        <property name="locations" value="classpath:test.properties"/>
+        <property name="locations" value="classpath:app.properties"/>
     </bean>
 
     <bean   class="com.foodoon.mvc.runtime.core.spring.SpringBeanFactoryTool">
@@ -38,7 +38,7 @@
 
 	<bean id="velocityConfig"
 		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="${htdocs_root}" />
+		<property name="resourceLoaderPath" value="/" />
 		<!-- <property name="configLocation" value="classpath*:/spring/velocity.properties" 
 			/> -->
 		<property name="velocityProperties">
@@ -52,6 +52,21 @@
 			</props>
 		</property>
 	</bean>
+
+
+
+    <bean id="filterChainProxy"
+          class="com.foodoon.mvc.runtime.core.filter.FilterChainProxy" >
+        <property name="filterChains">
+            <list>
+                <ref bean="characterEncodingFilter" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="characterEncodingFilter" class="org.springframework.web.filter.CharacterEncodingFilter">
+        <property name="encoding" value="UTF-8"></property>
+    </bean>
 
 
 </beans>

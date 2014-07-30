@@ -35,7 +35,7 @@ public class CourtAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = courtBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class CourtAction {
         CourtDO courtDO = courtForm.toDO();
         BizResult bizResult = courtBiz.create(courtDO);
         if (bizResult.success) {
-            return "redirect:/court/list.vm";
+            return "redirect:/court/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +105,19 @@ public class CourtAction {
         CourtDO courtDO = courtEditForm.toDO();
         BizResult bizResult = courtBiz.update(courtDO);
         if (bizResult.success) {
-            return "redirect:/court/list.vm";
+            return "redirect:/court/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "court/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "court/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = courtBiz.delete(id);
         if (bizResult.success) {
-            return "court/list.vm";
+            return "redirect:/court/list.htm";
         } else {
             return "common/error.vm";
         }

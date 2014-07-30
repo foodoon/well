@@ -35,7 +35,7 @@ public class GoodsAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-        baseQuery.setPageSize(pageSize);
+        modelMap.put("query",baseQuery);
         BizResult bizResult = goodsBiz.list(baseQuery);
         if (bizResult.success) {
             modelMap.putAll(bizResult.data);
@@ -89,7 +89,7 @@ public class GoodsAction {
         GoodsDO goodsDO = goodsForm.toDO();
         BizResult bizResult = goodsBiz.create(goodsDO);
         if (bizResult.success) {
-            return "redirect:/goods/list.vm";
+            return "redirect:/goods/list.htm";
         } else {
             return "common/error.vm";
         }
@@ -105,19 +105,19 @@ public class GoodsAction {
         GoodsDO goodsDO = goodsEditForm.toDO();
         BizResult bizResult = goodsBiz.update(goodsDO);
         if (bizResult.success) {
-            return "redirect:/goods/list.vm";
+            return "redirect:/goods/list.htm";
         } else {
             return "common/error.vm";
         }
 
     }
 
-    @RequestMapping(value = "goods/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "goods/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = goodsBiz.delete(id);
         if (bizResult.success) {
-            return "goods/list.vm";
+            return "redirect:/goods/list.htm";
         } else {
             return "common/error.vm";
         }

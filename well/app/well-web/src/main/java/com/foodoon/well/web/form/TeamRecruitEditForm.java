@@ -26,7 +26,7 @@ public class TeamRecruitEditForm extends TeamRecruitForm {
             return;
         }
         this.setUserId(teamRecruitDO.getUserId());
-        this.setDesc(teamRecruitDO.getDesc());
+        this.setRecruitDesc(teamRecruitDO.getRecruitDesc());
     }
 
 }

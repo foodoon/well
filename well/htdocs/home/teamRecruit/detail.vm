@@ -10,7 +10,7 @@ $!teamRecruit详情
                 <tr>
               <td>招募宣言</td>
               <td>
-                  $!teamRecruitDO.desc
+                  $!teamRecruitDO.recruitDesc
               </td>
           </tr>
 

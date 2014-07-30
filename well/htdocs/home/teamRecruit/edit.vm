@@ -12,7 +12,7 @@
                   #foreach($error in $status.errorMessages) <b>$error</b>  #end
               </td>
           </tr>
-                #springBind("teamRecruitEditForm.desc")
+                #springBind("teamRecruitEditForm.recruitDesc")
           <tr>
               <td>招募宣言</td>
               <td>

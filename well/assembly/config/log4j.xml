@@ -5,7 +5,7 @@
 
 
 	<appender name="DEFAULT-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well/common-default.log" />
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -15,7 +15,7 @@
 	</appender>
 
 	<appender name="ERROR-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well/common-error.log" />
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -47,7 +47,7 @@
 	<appender name="NULL-APPENDER" class="org.apache.log4j.varia.NullAppender"/>
 
 	<appender name="APACHE-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well/common-apache.log"/>
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -57,7 +57,7 @@
 	</appender>
 
 	<appender name="VELOCITY-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file"
 			value="/home/admin/logs/well/logs/common-velocity.log"/>
 		<param name="append" value="true" />
@@ -68,7 +68,7 @@
 	</appender>
 
 	<appender name="DAL-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well-dal.log" />
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -78,7 +78,7 @@
 	</appender>
 
 	<appender name="BIZ-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well-biz.log"/>
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -88,7 +88,7 @@
 	</appender>
 
 	<appender name="WEB-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file" value="/home/admin/logs/well-web.log"/>
 		<param name="append" value="true" />
 		<param name="encoding" value="UTF-8" />
@@ -99,7 +99,7 @@
 
 
 	<appender name="home-DEFAULT-APPENDER"
-		class="com.foodoon.gooda.mvc.runtime.core.log4j.DailyRollingFileAppender">
+		class="com.foodoon.mvc.runtime.core.log4j.DailyRollingFileAppender">
 		<param name="file"
 			value="/home/admin/logs/well/logs-default.log"/>
 		<param name="append" value="true" />
@@ -121,7 +121,7 @@
 	</logger>
 	
 	<logger name="org.apache" additivity="false">
-		<level value="info"/>
+		<level value="debug"/>
 		<appender-ref ref="APACHE-APPENDER"/>
 		<appender-ref ref="ERROR-APPENDER"/>
 	</logger>

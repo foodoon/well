@@ -22,7 +22,7 @@
                <td> $!f.openTime</td>
                <td> $!f.userId</td>
                <td> $!f.status</td>
-               <td> $!f.desc</td>
+               <td> $!f.courtDesc</td>
                <td> $!f.square</td>
           <td><a href="$!homeServer.getURI("court/edit.htm").addQueryData('id',"$!f.id")" >编辑</a></td>
     <td><a href="$!homeServer.getURI("court/detail.htm").addQueryData('id',"$!f.id")" >查看详情</a></td>
@@ -30,3 +30,5 @@
  </tr>
 #end
 </table>
+
+$tile.load('home/common/page.vm').param('query',$query).param('path','court/list.htm')
