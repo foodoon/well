@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,6 +64,9 @@ public class CourtBizImpl implements CourtBiz{
 
     public BizResult create(CourtDO courtDO) {
         BizResult bizResult = new BizResult();
+        courtDO.setGmtModify(new Date());
+        courtDO.setGmtCreate(new Date());
+        courtDO.setIsDeleted(0);
         try {
             int id = courtDOMapper.insert(courtDO);
             bizResult.data.put("id", id);

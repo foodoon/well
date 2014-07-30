@@ -18,7 +18,7 @@ public class DaoGen {
 
         String appName = "well";
         String parentPackageName = "com.foodoon";
-        String tableName = "well_user";
+        String tableName = "well_court";
         demoGen.genDAO(tableName,appName,parentPackageName);
 
 

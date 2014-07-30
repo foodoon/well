@@ -11,7 +11,7 @@ public class TeamRecruitDO {
     private Integer userId;
 
     @GenField(cn="招募宣言",order=1,inSearchForm = false,canNull = false)
-    private String desc;
+    private String recruitDesc;
 
     private Integer isDeleted;
 
@@ -35,12 +35,12 @@ public class TeamRecruitDO {
         this.userId = userId;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getRecruitDesc() {
+        return recruitDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setRecruitDesc(String desc) {
+        this.recruitDesc = desc == null ? null : desc.trim();
     }
 
     public Integer getIsDeleted() {

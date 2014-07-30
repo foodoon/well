@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,6 +64,9 @@ public class TeamApplyBizImpl implements TeamApplyBiz{
 
     public BizResult create(TeamApplyDO teamApplyDO) {
         BizResult bizResult = new BizResult();
+        teamApplyDO.setGmtModify(new Date());
+        teamApplyDO.setGmtCreate(new Date());
+        teamApplyDO.setIsDeleted(0);
         try {
             int id = teamApplyDOMapper.insert(teamApplyDO);
             bizResult.data.put("id", id);

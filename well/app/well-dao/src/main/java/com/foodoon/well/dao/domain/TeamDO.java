@@ -11,7 +11,7 @@ public class TeamDO {
     private String name;
 
     @GenField(cn="简单介绍",order=1,inSearchForm = false,canNull = false)
-    private String desc;
+    private String teamDesc;
 
     @GenField(cn="是否开放加入",order=1,inSearchForm = false,canNull = false)
     private Integer canJoin;
@@ -38,12 +38,12 @@ public class TeamDO {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getDesc() {
-        return desc;
+    public String getTeamDesc() {
+        return teamDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setTeamDesc(String desc) {
+        this.teamDesc = desc == null ? null : desc.trim();
     }
 
     public Integer getCanJoin() {

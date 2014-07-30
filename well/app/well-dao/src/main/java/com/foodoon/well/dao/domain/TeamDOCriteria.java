@@ -255,73 +255,73 @@ public class TeamDOCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNull() {
-            addCriterion("desc is null");
+        public Criteria andTeamDescIsNull() {
+            addCriterion("team_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNotNull() {
-            addCriterion("desc is not null");
+        public Criteria andTeamDescIsNotNull() {
+            addCriterion("team_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDescEqualTo(String value) {
-            addCriterion("desc =", value, "desc");
+        public Criteria andTeamDescEqualTo(String value) {
+            addCriterion("team_desc =", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotEqualTo(String value) {
-            addCriterion("desc <>", value, "desc");
+        public Criteria andTeamDescNotEqualTo(String value) {
+            addCriterion("team_desc <>", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThan(String value) {
-            addCriterion("desc >", value, "desc");
+        public Criteria andTeamDescGreaterThan(String value) {
+            addCriterion("team_desc >", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThanOrEqualTo(String value) {
-            addCriterion("desc >=", value, "desc");
+        public Criteria andTeamDescGreaterThanOrEqualTo(String value) {
+            addCriterion("team_desc >=", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThan(String value) {
-            addCriterion("desc <", value, "desc");
+        public Criteria andTeamDescLessThan(String value) {
+            addCriterion("team_desc <", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThanOrEqualTo(String value) {
-            addCriterion("desc <=", value, "desc");
+        public Criteria andTeamDescLessThanOrEqualTo(String value) {
+            addCriterion("team_desc <=", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLike(String value) {
-            addCriterion("desc like", value, "desc");
+        public Criteria andTeamDescLike(String value) {
+            addCriterion("team_desc like", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotLike(String value) {
-            addCriterion("desc not like", value, "desc");
+        public Criteria andTeamDescNotLike(String value) {
+            addCriterion("team_desc not like", value, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescIn(List<String> values) {
-            addCriterion("desc in", values, "desc");
+        public Criteria andTeamDescIn(List<String> values) {
+            addCriterion("team_desc in", values, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotIn(List<String> values) {
-            addCriterion("desc not in", values, "desc");
+        public Criteria andTeamDescNotIn(List<String> values) {
+            addCriterion("team_desc not in", values, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescBetween(String value1, String value2) {
-            addCriterion("desc between", value1, value2, "desc");
+        public Criteria andTeamDescBetween(String value1, String value2) {
+            addCriterion("team_desc between", value1, value2, "teamDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotBetween(String value1, String value2) {
-            addCriterion("desc not between", value1, value2, "desc");
+        public Criteria andTeamDescNotBetween(String value1, String value2) {
+            addCriterion("team_desc not between", value1, value2, "teamDesc");
             return (Criteria) this;
         }
 

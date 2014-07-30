@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,6 +64,10 @@ public class ChallengeMsgBizImpl implements ChallengeMsgBiz{
 
     public BizResult create(ChallengeMsgDO challengeMsgDO) {
         BizResult bizResult = new BizResult();
+
+        challengeMsgDO.setGmtModify(new Date());
+        challengeMsgDO.setGmtCreate(new Date());
+        challengeMsgDO.setIsDeleted(0);
         try {
             int id = challengeMsgDOMapper.insert(challengeMsgDO);
             bizResult.data.put("id", id);

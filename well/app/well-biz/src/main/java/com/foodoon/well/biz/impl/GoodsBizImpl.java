@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,6 +64,9 @@ public class GoodsBizImpl implements GoodsBiz{
 
     public BizResult create(GoodsDO goodsDO) {
         BizResult bizResult = new BizResult();
+        goodsDO.setGmtModify(new Date());
+        goodsDO.setGmtCreate(new Date());
+        goodsDO.setIsDeleted(0);
         try {
             int id = goodsDOMapper.insert(goodsDO);
             bizResult.data.put("id", id);

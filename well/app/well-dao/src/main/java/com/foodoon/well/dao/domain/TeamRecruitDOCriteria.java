@@ -245,73 +245,73 @@ public class TeamRecruitDOCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNull() {
-            addCriterion("desc is null");
+        public Criteria andRecruitDescIsNull() {
+            addCriterion("recruit_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNotNull() {
-            addCriterion("desc is not null");
+        public Criteria andRecruitDescIsNotNull() {
+            addCriterion("recruit_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDescEqualTo(String value) {
-            addCriterion("desc =", value, "desc");
+        public Criteria andRecruitDescEqualTo(String value) {
+            addCriterion("recruit_desc =", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotEqualTo(String value) {
-            addCriterion("desc <>", value, "desc");
+        public Criteria andRecruitDescNotEqualTo(String value) {
+            addCriterion("recruit_desc <>", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThan(String value) {
-            addCriterion("desc >", value, "desc");
+        public Criteria andRecruitDescGreaterThan(String value) {
+            addCriterion("recruit_desc >", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThanOrEqualTo(String value) {
-            addCriterion("desc >=", value, "desc");
+        public Criteria andRecruitDescGreaterThanOrEqualTo(String value) {
+            addCriterion("recruit_desc >=", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThan(String value) {
-            addCriterion("desc <", value, "desc");
+        public Criteria andRecruitDescLessThan(String value) {
+            addCriterion("recruit_desc <", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThanOrEqualTo(String value) {
-            addCriterion("desc <=", value, "desc");
+        public Criteria andRecruitDescLessThanOrEqualTo(String value) {
+            addCriterion("recruit_desc <=", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLike(String value) {
-            addCriterion("desc like", value, "desc");
+        public Criteria andRecruitDescLike(String value) {
+            addCriterion("recruit_desc like", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotLike(String value) {
-            addCriterion("desc not like", value, "desc");
+        public Criteria andRecruitDescNotLike(String value) {
+            addCriterion("recruit_desc not like", value, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescIn(List<String> values) {
-            addCriterion("desc in", values, "desc");
+        public Criteria andRecruitDescIn(List<String> values) {
+            addCriterion("recruit_desc in", values, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotIn(List<String> values) {
-            addCriterion("desc not in", values, "desc");
+        public Criteria andRecruitDescNotIn(List<String> values) {
+            addCriterion("recruit_desc not in", values, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescBetween(String value1, String value2) {
-            addCriterion("desc between", value1, value2, "desc");
+        public Criteria andRecruitDescBetween(String value1, String value2) {
+            addCriterion("recruit_desc between", value1, value2, "recruitDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotBetween(String value1, String value2) {
-            addCriterion("desc not between", value1, value2, "desc");
+        public Criteria andRecruitDescNotBetween(String value1, String value2) {
+            addCriterion("recruit_desc not between", value1, value2, "recruitDesc");
             return (Criteria) this;
         }
 

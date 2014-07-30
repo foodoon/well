@@ -29,7 +29,7 @@ public class CourtDO {
     private Integer status;
 
     @GenField(cn="球场介绍",order=1,inSearchForm = false,canNull = false)
-    private String desc;
+    private String courtDesc;
 
     @GenField(cn="面积",order=1,inSearchForm = false,canNull = false)
     private String square;
@@ -110,12 +110,12 @@ public class CourtDO {
         this.status = status;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getCourtDesc() {
+        return courtDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setCourtDesc(String desc) {
+        this.courtDesc = desc == null ? null : desc.trim();
     }
 
     public Date getGmtModify() {

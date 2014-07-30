@@ -715,73 +715,73 @@ public class CourtDOCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNull() {
-            addCriterion("desc is null");
+        public Criteria andCourtDescIsNull() {
+            addCriterion("court_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNotNull() {
-            addCriterion("desc is not null");
+        public Criteria andCourtDescIsNotNull() {
+            addCriterion("court_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDescEqualTo(String value) {
-            addCriterion("desc =", value, "desc");
+        public Criteria andCourtDescEqualTo(String value) {
+            addCriterion("court_desc =", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotEqualTo(String value) {
-            addCriterion("desc <>", value, "desc");
+        public Criteria andCourtDescNotEqualTo(String value) {
+            addCriterion("court_desc <>", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThan(String value) {
-            addCriterion("desc >", value, "desc");
+        public Criteria andCourtDescGreaterThan(String value) {
+            addCriterion("court_desc >", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThanOrEqualTo(String value) {
-            addCriterion("desc >=", value, "desc");
+        public Criteria andCourtDescGreaterThanOrEqualTo(String value) {
+            addCriterion("court_desc >=", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThan(String value) {
-            addCriterion("desc <", value, "desc");
+        public Criteria andCourtDescLessThan(String value) {
+            addCriterion("court_desc <", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThanOrEqualTo(String value) {
-            addCriterion("desc <=", value, "desc");
+        public Criteria andCourtDescLessThanOrEqualTo(String value) {
+            addCriterion("court_desc <=", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLike(String value) {
-            addCriterion("desc like", value, "desc");
+        public Criteria andCourtDescLike(String value) {
+            addCriterion("court_desc like", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotLike(String value) {
-            addCriterion("desc not like", value, "desc");
+        public Criteria andCourtDescNotLike(String value) {
+            addCriterion("court_desc not like", value, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescIn(List<String> values) {
-            addCriterion("desc in", values, "desc");
+        public Criteria andCourtDescIn(List<String> values) {
+            addCriterion("court_desc in", values, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotIn(List<String> values) {
-            addCriterion("desc not in", values, "desc");
+        public Criteria andCourtDescNotIn(List<String> values) {
+            addCriterion("court_desc not in", values, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescBetween(String value1, String value2) {
-            addCriterion("desc between", value1, value2, "desc");
+        public Criteria andCourtDescBetween(String value1, String value2) {
+            addCriterion("court_desc between", value1, value2, "courtDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotBetween(String value1, String value2) {
-            addCriterion("desc not between", value1, value2, "desc");
+        public Criteria andCourtDescNotBetween(String value1, String value2) {
+            addCriterion("court_desc not between", value1, value2, "courtDesc");
             return (Criteria) this;
         }
 
