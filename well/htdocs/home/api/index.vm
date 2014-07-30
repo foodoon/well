@@ -1,0 +1,41 @@
+<form class="form-inline" role="form">
+    <fieldset>
+        <div id="legend" class="">
+            <legend class="">服务信息</legend>
+        </div>
+        <div class="form-group">
+            <label>服务端地址</label>
+            <input type="text" class="form-control" value="http://blog.foodoon.com/api.htm">
+        </div>
+
+        <div class="form-group">
+            <label>apiName</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>apiVersion</label>
+            <input type="text" class="form-control">
+        </div>
+    </fieldset>
+</form>
+
+<form class="form-inline" role="form">
+    <fieldset>
+        <div id="legend" class="">
+            <legend class="">参数信息</legend>
+        </div>
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" class="form-control" value="http://blog.foodoon.com/api.htm">
+        </div>
+
+        <div class="form-group">
+            <label>密码</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>apiVersion</label>
+            <input type="text" class="form-control">
+        </div>
+        </fieldset>
+</form>
