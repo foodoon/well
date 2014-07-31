@@ -2,12 +2,13 @@ package com.foodoon.well.web.form;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.CourtApplyDO;
-import com.sun.istack.internal.NotNull;
+
 
 public class CourtApplyForm {
     @NotNull

@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.GoodsDO;
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class GoodsForm {
     @NotEmpty(message = "{不能为空}")

@@ -8,7 +8,7 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.UserDO;
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class UserForm {
     @NotEmpty(message = "{不能为空}")

@@ -3,7 +3,7 @@ package com.foodoon.well.web.form;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.TeamDO;
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class TeamForm {
     @NotEmpty(message = "{不能为空}")

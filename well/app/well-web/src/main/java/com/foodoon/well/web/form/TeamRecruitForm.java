@@ -5,7 +5,7 @@ package com.foodoon.well.web.form;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.TeamRecruitDO;
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 public class TeamRecruitForm {
     @NotNull
