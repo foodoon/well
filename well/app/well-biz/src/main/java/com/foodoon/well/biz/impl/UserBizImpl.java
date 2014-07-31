@@ -66,7 +66,7 @@ public class UserBizImpl implements UserBiz{
         return bizResult;
     }
 
-    @AppRequestMapping(apiName ="user.create",apiVersion = "1.0")
+
     public BizResult create(UserDO userDO) {
         userDO.setGmtModify(new Date());
         userDO.setGmtCreate(new Date());

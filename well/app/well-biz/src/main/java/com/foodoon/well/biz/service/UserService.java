@@ -2,6 +2,7 @@ package com.foodoon.well.biz.service;
 
 import com.foodoon.well.biz.entity.TeamApplyVO;
 import com.foodoon.well.dao.domain.UserDO;
+import com.foodoon.well.util.AppRequestMapping;
 
 import java.util.List;
 
@@ -10,15 +11,16 @@ import java.util.List;
  */
 public interface UserService {
 
-    public boolean reg(UserDO userDO);
+
+    public boolean create(UserDO userDO);
 
     public boolean update(UserDO userDO);
 
-    public boolean delete(UserDO userDO);
-
     public UserDO queryByUserName(String userName);
 
-    public UserDO queryById(int id);
+    public UserDO login(String userName,String password);
+
+    public boolean loginOut(String userName);
 
 
 }

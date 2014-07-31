@@ -2,6 +2,8 @@ package com.foodoon.well.biz.service;
 
 import com.foodoon.well.dao.domain.CourtDO;
 
+import java.util.List;
+
 /**
  * Created by foodoon on 2014/7/31.
  */
@@ -19,6 +21,8 @@ public interface CourtService {
 
     public boolean passApply(int applyId);
 
+    public List<CourtDO> queryReserveList(int userId);
 
+    public List<CourtDO> queryReserveListForReview(int userId);
 
 }
