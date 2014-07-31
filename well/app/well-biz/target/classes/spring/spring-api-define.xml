@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="apiFactory" class="com.foodoon.well.biz.entity.ApiFactory">
+        <property name="apiDefineList">
+            <list>
+                <ref local="user.reg"></ref>
+                <ref local="user.update"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="user.reg" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="user.reg"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="password2" value="再次输入密码"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="user.update" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="user.update"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="realName" value="真实姓名"></entry>
+                <entry key="address" value="地址"></entry>
+                <entry key="phone" value="手机号"></entry>
+                <entry key="groundTypeOfEnjoy" value="喜欢的场地类型"></entry>
+                <entry key="groundOfDaily" value="经常比赛的场地"></entry>
+                <entry key="special" value="特长"></entry>
+
+            </map>
+        </property>
+    </bean>
+</beans>
