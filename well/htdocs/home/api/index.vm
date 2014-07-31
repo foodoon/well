@@ -22,7 +22,7 @@
 <form class="form-inline" role="form">
     <fieldset>
         <div id="legend" class="">
-            <legend class="">参数信息</legend>
+            <legend class="">登录信息</legend>
         </div>
         <div class="form-group">
             <label>用户名</label>
@@ -31,11 +31,43 @@
 
         <div class="form-group">
             <label>密码</label>
-            <input type="text" class="form-control">
+            <input type="password" class="form-control">
         </div>
-        <div class="form-group">
-            <label>apiVersion</label>
-            <input type="text" class="form-control">
+
+    </fieldset>
+
+</form>
+
+<form class="form-inline" role="form">
+<div class="form-group">
+    <button type="button" class="btn">生成测试URL</button>
+</div>
+    </form>
+
+<form class="form-inline" role="form">
+
+    <div class="form-group">
+        <textarea cols="100" >
+        </textarea>
+    </div>
+
+
+</form>
+
+<div class="form-group">
+    <div class="form-group">
+    <button type="button" class="btn">提交测试</button>
         </div>
+</div>
+
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <fieldset>
+            <div  class="form-group">
+                <textarea cols="100" rows="30">
+                </textarea>
+            </div>
+
         </fieldset>
+    </div>
 </form>
