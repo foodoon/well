@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="$!homeServer.getURI("static/bootstrap-3.2.0-dist/css/bootstrap.min.css")">
     <link rel="stylesheet" href="$!homeServer.getURI("static/bootstrap-3.2.0-dist/css/bootstrap-responsive.css")">
+    <script src="$!homeServer.getURI("static/js/jquery-1.11.1.min.js")"></script>
     <style type="text/css">
         body {
             padding-top: 60px;
@@ -90,7 +91,7 @@
 
 
  </body>
-<script src="$!homeServer.getURI("static/js/jquery-1.11.1.min.js")"></script>
+
 <script src="$!homeServer.getURI("static/bootstrap-3.2.0-dist/js/bootstrap.min.js")"></script>
 
 
