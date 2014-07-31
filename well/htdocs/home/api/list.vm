@@ -1,0 +1,75 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>用户相关</h2>
+            <ul>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">用户登录</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">用户登出</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.update').addQueryData('apiVersion','1.0')">修改个人信息</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.reg').addQueryData('apiVersion','1.0')">用户注册</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>球队相关</h2>
+            <ul>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">创建球队</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">删除球队</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">修改球队信息（角色是球队队长）</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">申请加入球队</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">审批加入球队申请</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">拒绝加入球队申请</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询我的申请记录</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询球队申请记录</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>比赛相关</h2>
+            <ul>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">发布约战信息</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">修改约战信息</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">取消约战信息</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">预约场地</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">取消场地预约</a></li>
+
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">录入比赛结果（发起人才能录入）</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">针对比赛结果发表评论</a></li>
+                <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询评论</a></li>
+            </ul>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>场地相关（需要老板角色）</h2>
+                <ul>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">添加场地信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">修改场地信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">删除场地信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询我的预约记录</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询待审批预约记录</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">批准场地预约申请</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">拒绝场地预约申请</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>商品，服务相关</h2>
+                <ul>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询某个场地的商品，服务信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">购买商品，呼叫服务</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">接收商品购买，服务呼叫</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询我的购买记录</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">查询我的卖出记录</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">发布商品，服务信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">修改商品，服务信息</a></li>
+                    <li><a href="$!homeServer.getURI("api/index.htm").addQueryData('apiName','user.login').addQueryData('apiVersion','1.0')">删除商品，服务信息</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2>其他</h2>
+                <ul>
+                </ul>
+            </div>
+
+        </div>
+
