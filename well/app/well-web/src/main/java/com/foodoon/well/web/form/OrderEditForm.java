@@ -28,6 +28,7 @@ public class OrderEditForm extends OrderForm {
         this.setGoodsId(orderDO.getGoodsId());
         this.setUserId(orderDO.getUserId());
         this.setLeaveMsg(orderDO.getLeaveMsg());
+        this.setDeliveryTime(orderDO.getDeliveryTime());
     }
 
 }

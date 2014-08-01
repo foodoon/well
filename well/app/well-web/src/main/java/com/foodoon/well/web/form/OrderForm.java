@@ -2,12 +2,13 @@ package com.foodoon.well.web.form;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.OrderDO;
-import javax.validation.constraints.NotNull;
+
 
 public class OrderForm {
     @NotNull
@@ -18,6 +19,9 @@ public class OrderForm {
 
     @NotEmpty(message = "{不能为空}")
     private String leaveMsg;
+
+    @NotNull
+    private Date deliveryTime;
 
     public Integer getGoodsId() {
         return goodsId;
@@ -43,11 +47,20 @@ public class OrderForm {
         this.leaveMsg = leaveMsg;
     }
 
+    public Date getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(Date deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
+
     public OrderDO toDO() {
         OrderDO orderDO = new OrderDO();
         orderDO.setGoodsId(this.goodsId);
         orderDO.setUserId(this.userId);
         orderDO.setLeaveMsg(this.leaveMsg);
+        orderDO.setDeliveryTime(this.deliveryTime);
         return orderDO;
     }
 

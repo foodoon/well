@@ -12,6 +12,23 @@
         </property>
     </bean>
 
+    <bean id="user.login" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="user.login"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="user.loginOut" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="user.login"></property>
+        <property name="apiVersion" value="1.0"></property>
+
+    </bean>
+
     <bean id="user.reg" class="com.foodoon.well.biz.entity.ApiDefine">
         <property name="apiName" value="user.reg"></property>
         <property name="apiVersion" value="1.0"></property>

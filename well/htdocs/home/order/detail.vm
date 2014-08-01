@@ -21,4 +21,11 @@ $!order详情
               </td>
           </tr>
 
+                <tr>
+              <td>配送时间</td>
+              <td>
+                  $!orderDO.deliveryTime
+              </td>
+          </tr>
+
         </table>

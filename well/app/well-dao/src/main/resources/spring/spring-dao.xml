@@ -44,4 +44,8 @@
   <property name="mapperInterface" value="com.foodoon.well.dao.UserDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
  </bean>
+ <bean id="sessionDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+  <property name="mapperInterface" value="com.foodoon.well.dao.SessionDOMapper"/>
+  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+ </bean>
 </beans>

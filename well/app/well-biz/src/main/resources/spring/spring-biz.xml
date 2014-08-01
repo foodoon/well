@@ -11,4 +11,5 @@
  <bean id="teamApplyBiz" class="com.foodoon.well.biz.impl.TeamApplyBizImpl"/>
  <bean id="teamRecruitBiz" class="com.foodoon.well.biz.impl.TeamRecruitBizImpl"/>
  <bean id="userBiz" class="com.foodoon.well.biz.impl.UserBizImpl"/>
+ <bean id="sessionBiz" class="com.foodoon.well.biz.impl.SessionBizImpl"/>
 </beans>

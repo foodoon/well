@@ -81,7 +81,7 @@ public class OrderAction {
     }
 
     @RequestMapping(value = "order/doCreate.htm", method = RequestMethod.POST)
-    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid OrderForm orderForm,
+    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid  OrderForm orderForm,
         BindingResult result, Map<String,Object> model) {
         if (result.hasErrors()) {
             return "order/create.vm";
@@ -112,12 +112,12 @@ public class OrderAction {
 
     }
 
-    @RequestMapping(value = "order/doDelete.htm")
+    @RequestMapping(value = "order/doDelete.htm", method = RequestMethod.POST)
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = orderBiz.delete(id);
         if (bizResult.success) {
-            return "redirect:/order/list.htm";
+            return "order/list.htm";
         } else {
             return "common/error.vm";
         }

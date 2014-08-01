@@ -16,6 +16,9 @@ public class OrderDO {
     @GenField(cn="留言",order=1,inSearchForm = false,canNull = false)
     private String leaveMsg;
 
+    @GenField(cn="配送时间",order=1,inSearchForm = false,canNull = false)
+    private Date deliveryTime;
+
     private Integer isDeleted;
 
     private Date gmtModify;
@@ -44,6 +47,14 @@ public class OrderDO {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Date getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(Date deliveryTime) {
+        this.deliveryTime = deliveryTime;
     }
 
     public String getLeaveMsg() {

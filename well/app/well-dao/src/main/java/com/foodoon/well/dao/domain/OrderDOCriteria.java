@@ -305,6 +305,66 @@ public class OrderDOCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andDeliveryTimeIsNull() {
+            addCriterion("delivery_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeIsNotNull() {
+            addCriterion("delivery_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeEqualTo(Date value) {
+            addCriterion("delivery_time =", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeNotEqualTo(Date value) {
+            addCriterion("delivery_time <>", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeGreaterThan(Date value) {
+            addCriterion("delivery_time >", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("delivery_time >=", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeLessThan(Date value) {
+            addCriterion("delivery_time <", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeLessThanOrEqualTo(Date value) {
+            addCriterion("delivery_time <=", value, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeIn(List<Date> values) {
+            addCriterion("delivery_time in", values, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeNotIn(List<Date> values) {
+            addCriterion("delivery_time not in", values, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeBetween(Date value1, Date value2) {
+            addCriterion("delivery_time between", value1, value2, "deliveryTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andDeliveryTimeNotBetween(Date value1, Date value2) {
+            addCriterion("delivery_time not between", value1, value2, "deliveryTime");
+            return (Criteria) this;
+        }
+
         public Criteria andLeaveMsgIsNull() {
             addCriterion("leave_msg is null");
             return (Criteria) this;
