@@ -3,10 +3,9 @@ package com.foodoon.well.biz.impl;
 import java.util.Date;
 import java.util.List;
 
-import com.foodoon.well.util.AppRequestMapping;
-import com.foodoon.well.util.CommonResultCode;
+import com.foodoon.well.dao.SessionDOMapper;
+import com.foodoon.well.util.*;
 
-import com.foodoon.well.util.ErrorCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,9 @@ public class UserBizImpl implements UserBiz{
 
     @Autowired
     private UserDOMapper userDOMapper;
+
+    @Autowired
+    private SessionDOMapper sessionDOMapper;
 
     public BizResult detail(int id) {
         BizResult bizResult = new BizResult();
@@ -97,4 +99,32 @@ public class UserBizImpl implements UserBiz{
         return bizResult;
     }
 
+    public BizResult login(String userName, String password) {
+        BizResult bizResult = new BizResult();
+        UserDOCriteria userDOCriteria = new UserDOCriteria();
+        UserDOCriteria.Criteria criteria = userDOCriteria.createCriteria();
+        criteria.andUserNameEqualTo(userName);
+        List<UserDO> userDOs = userDOMapper.selectByExample(userDOCriteria);
+        if(userDOs.size() == 0){
+            BizResultHelper.setResultCode(bizResult,CommonResultCode.USER_NOT_EXIST);
+            return bizResult;
+        }else if(userDOs.size()>1){
+            BizResultHelper.setResultCode(bizResult,CommonResultCode.USER_NAME_DUPLICATE);
+            return bizResult;
+        }
+
+        //校验密码
+        UserDO userDO = userDOs.get(0);
+        if(!userDO.getPassword().equals(Md5.encode(password))){
+            BizResultHelper.setResultCode(bizResult,CommonResultCode.USER_OR_PASSWORD_NOT_MATCH);
+            return bizResult;
+        }
+
+        return null;
     }
+
+    public BizResult loginOut(String sid) {
+        return null;
+    }
+
+}

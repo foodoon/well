@@ -16,4 +16,9 @@ public interface UserBiz {
 
         BizResult update(UserDO userDO);
 
+        BizResult login(String userName,String password);
+
+        BizResult loginOut(String sid);
+
+
 }
