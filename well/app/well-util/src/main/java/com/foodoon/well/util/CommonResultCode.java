@@ -5,6 +5,8 @@ package com.foodoon.well.util;
  */
 public class CommonResultCode {
 
+    public static final String UNKOWN_ERROR = "UNKOWN_ERROR";
+
     public static final String DATABASE_ERRROR = "DATABASE_ERRROR";
 
     public static final String USER_NOT_EXIST = "USER_NOT_EXIST";

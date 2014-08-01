@@ -1,9 +1,13 @@
 package com.foodoon.well.biz.impl;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import com.foodoon.well.dao.SessionDOMapper;
+import com.foodoon.well.dao.domain.SessionDO;
+import com.foodoon.well.dao.domain.SessionDOCriteria;
 import com.foodoon.well.util.*;
 
 import org.slf4j.Logger;
@@ -102,6 +106,8 @@ public class UserBizImpl implements UserBiz{
     public BizResult login(String userName, String password) {
         BizResult bizResult = new BizResult();
         UserDOCriteria userDOCriteria = new UserDOCriteria();
+        userDOCriteria.setStartRow(0);
+        userDOCriteria.setPageSize(2);
         UserDOCriteria.Criteria criteria = userDOCriteria.createCriteria();
         criteria.andUserNameEqualTo(userName);
         List<UserDO> userDOs = userDOMapper.selectByExample(userDOCriteria);
@@ -119,8 +125,40 @@ public class UserBizImpl implements UserBiz{
             BizResultHelper.setResultCode(bizResult,CommonResultCode.USER_OR_PASSWORD_NOT_MATCH);
             return bizResult;
         }
-
-        return null;
+        SessionDOCriteria sessionDOCriteria = new SessionDOCriteria();
+        SessionDOCriteria.Criteria criteria1 = sessionDOCriteria.createCriteria();
+        criteria1.andUserIdEqualTo(userDO.getId());
+        sessionDOCriteria.setStartRow(0);
+        sessionDOCriteria.setPageSize(2);
+        List<SessionDO> sessionDOs = sessionDOMapper.selectByExample(sessionDOCriteria);
+        String sid = UUID.randomUUID().toString();
+        if(sessionDOs.size() == 0){
+            SessionDO sessionDO = new SessionDO();
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            sessionDO.setExpireTime(calendar.getTime());
+            sessionDO.setGmtCreate(new Date());
+            sessionDO.setGmtModify(new Date());
+            sessionDO.setUserId(userDO.getId());
+            sessionDO.setsId(sid);
+            sessionDOMapper.insert(sessionDO);
+            bizResult.data.put("sid",sid);
+            bizResult.success = true;
+            return bizResult;
+        }else if(sessionDOs.size()==1){
+            SessionDO sessionDO = sessionDOs.get(0);
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+            sessionDO.setExpireTime(calendar.getTime());
+            sessionDO.setGmtModify(new Date());
+            sessionDO.setsId(sid);
+            sessionDOMapper.updateByPrimaryKeySelective(sessionDO);
+            bizResult.data.put("sid",sid);
+            bizResult.success = true;
+            return bizResult;
+        }else{
+            throw new RuntimeException("session more than 1 rows.username:"+userName);
+        }
     }
 
     public BizResult loginOut(String sid) {

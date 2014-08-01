@@ -16,9 +16,9 @@ public class DemoGen {
         demoGen.setJdbcPath(jdbcPath);
         demoGen.setJdbUrl(jdbUrl);
        // demoGen.genDAO("demo","well","com.foodoon");
-         demoGen.genDaoXML("demo","well","com.foodoon");
-        demoGen.genBiz("demo","well","com.foodoon");
-        demoGen.genAction("demo","well","com.foodoon");
+       //  demoGen.genDaoXML("demo","well","com.foodoon");
+       // demoGen.genBiz("demo","well","com.foodoon");
+      //  demoGen.genAction("demo","well","com.foodoon");
 
 
 

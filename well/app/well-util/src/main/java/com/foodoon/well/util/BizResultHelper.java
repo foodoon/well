@@ -15,4 +15,11 @@ public class BizResultHelper {
         bizResult.code = code;
         bizResult.msg = ErrorCode.getMessage(code);
     }
+
+    public static BizResult newCommonError() {
+        BizResult bizResult  = new BizResult();
+        bizResult.code = CommonResultCode.UNKOWN_ERROR;
+        bizResult.msg = ErrorCode.getMessage(CommonResultCode.UNKOWN_ERROR);
+        return bizResult;
+    }
 }

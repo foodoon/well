@@ -5,6 +5,7 @@ import com.foodoon.well.biz.UserBiz;
 import com.foodoon.well.biz.service.UserService;
 import com.foodoon.well.dao.domain.UserDO;
 import com.foodoon.well.util.AppRequestMapping;
+import com.foodoon.well.util.BizResultHelper;
 
 /**
  * Created by foodoon on 2014/7/31.
@@ -30,7 +31,11 @@ public class UserServiceImpl implements UserService{
 
     @AppRequestMapping(apiName ="user.login",apiVersion = "1.0")
     public BizResult login(String userName, String password) {
-        return null;
+        try {
+            return userBiz.login(userName, password);
+        }catch(Exception e){
+            return BizResultHelper.newCommonError();
+        }
     }
 
     @AppRequestMapping(apiName ="user.loginOut",apiVersion = "1.0")
