@@ -1,6 +1,7 @@
 package com.foodoon.well.biz.service;
 
 import com.foodoon.tools.web.page.BizResult;
+import com.foodoon.well.biz.entity.AppUserForm;
 import com.foodoon.well.biz.entity.TeamApplyVO;
 import com.foodoon.well.dao.domain.UserDO;
 import com.foodoon.well.util.AppRequestMapping;
@@ -13,15 +14,15 @@ import java.util.List;
 public interface UserService {
 
 
-    public BizResult create(UserDO userDO);
+    public BizResult create(AppUserForm appUserForm);
 
-    public BizResult update(UserDO userDO);
+    public BizResult update(String sid,UserDO userDO);
 
-    public BizResult queryByUserName(String userName);
+    public BizResult queryUserInfo(String sid);
 
     public BizResult login(String userName,String password);
 
-    public BizResult loginOut(String userName);
+    public BizResult loginOut(String sid);
 
 
 }

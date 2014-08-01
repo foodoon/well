@@ -22,4 +22,18 @@ public class BizResultHelper {
         bizResult.msg = ErrorCode.getMessage(CommonResultCode.UNKOWN_ERROR);
         return bizResult;
     }
+
+    public static BizResult newSuccess() {
+        BizResult bizResult  = new BizResult();
+        bizResult.code = CommonResultCode.SUCCESS;
+        bizResult.msg = ErrorCode.getMessage(CommonResultCode.SUCCESS);
+        return bizResult;
+    }
+
+    public static BizResult newResultCode(String code) {
+        BizResult bizResult  = new BizResult();
+        bizResult.code = code;
+        bizResult.msg = ErrorCode.getMessage(code);
+        return bizResult;
+    }
 }

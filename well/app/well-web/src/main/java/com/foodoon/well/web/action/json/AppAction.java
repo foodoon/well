@@ -2,8 +2,10 @@ package com.foodoon.well.web.action.json;
 
 import com.alibaba.fastjson.JSON;
 import com.foodoon.tools.web.page.BizResult;
+import com.foodoon.well.util.CommonResultCode;
 import com.foodoon.well.util.ServletRequestUtil;
 import com.foodoon.well.web.common.*;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.ParseException;
 import java.util.Enumeration;
 import java.util.Map;
 
@@ -56,15 +59,24 @@ public class AppAction extends BaseJsonController{
         appRequest.setAppRequestKey(appRequestKey);
         appRequest.setRequestParams(parameterMap);
         AppMethodInvoker appMethodInvoker = new AppMethodInvoker();
-        AppResponse invoke = appMethodInvoker.invoke(appRequest, service.getHandleMethod());
-        if(invoke.isSuccess()){
-            if(invoke.getResult()!=null && invoke.getResult() instanceof BizResult){
-                BizResult bizResult = (BizResult)invoke.getResult();
-                if(!bizResult.success){
-                    invoke.setSuccess(false);
+        AppResponse invoke = null;
+        try {
+            invoke = appMethodInvoker.invoke(appRequest, service);
+            if(invoke.isSuccess()){
+                if(invoke.getResult()!=null && invoke.getResult() instanceof BizResult){
+                    BizResult bizResult = (BizResult)invoke.getResult();
+                    if(!bizResult.success){
+                        invoke.setSuccess(false);
+                    }
                 }
             }
+            this.ajaxReturn(invoke,response);
+            return;
+        } catch (Exception e) {
+            logger.error("invoke method error.",e);
+
         }
+        invoke.setErrorCode(CommonResultCode.METHOD_INVOKE_ERROR);
         this.ajaxReturn(invoke,response);
     }
 

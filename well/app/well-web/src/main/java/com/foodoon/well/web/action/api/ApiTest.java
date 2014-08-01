@@ -1,9 +1,14 @@
 package com.foodoon.well.web.action.api;
 
+import com.foodoon.tools.web.page.BizResult;
+import com.foodoon.well.biz.UserBiz;
 import com.foodoon.well.biz.entity.ApiDefine;
 import com.foodoon.well.biz.entity.ApiKey;
+import com.foodoon.well.util.CommonResultCode;
+import com.foodoon.well.util.ErrorCode;
 import com.foodoon.well.util.SignUtil;
 import com.foodoon.well.web.action.json.BaseJsonController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -19,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class ApiTest extends BaseJsonController{
 
+    @Autowired
+    private UserBiz userBiz;
+
     @RequestMapping(value = "api/createUrl.htm", method = RequestMethod.GET)
     public void createUrl(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) {
         String requestUrl = request.getParameter("requestUrl");
@@ -29,8 +37,23 @@ public class ApiTest extends BaseJsonController{
             this.ajaxReturn(modelMap,response);
             return;
         }
-       //如果Username  password不为空，处理登录
+
         String realUrl = SignUtil.convert2Str(request.getParameterMap(), "requestUrl");
+
+        //如果Username  password不为空，处理登录
+        if(StringUtils.hasText(userName)&&StringUtils.hasText(password)) {
+            BizResult login = userBiz.login(userName, password);
+            if(!login.success){
+                modelMap.put("msg", ErrorCode.getMessage(CommonResultCode.USER_OR_PASSWORD_NOT_MATCH));
+                this.ajaxReturn(modelMap, response);
+                return;
+            }
+            if(realUrl.length()>0){
+                realUrl  = realUrl + "&sid=" + login.data.get("sid");
+            }else{
+                realUrl = "sid=" + login.data.get("sid");
+            }
+        }
         if(requestUrl.contains("&")&&requestUrl.contains("=")){
             modelMap.put("msg",requestUrl + "&" + realUrl);
         }else if(requestUrl.contains("?")&&requestUrl.contains("=")){
