@@ -41,7 +41,7 @@ public class ApiTest extends BaseJsonController{
         String realUrl = SignUtil.convert2Str(request.getParameterMap(), "requestUrl");
 
         //如果Username  password不为空，处理登录
-        if(StringUtils.hasText(userName)&&StringUtils.hasText(password)) {
+        if(StringUtils.hasText(userName)&&StringUtils.hasText(password)&&!"user.reg".equals(request.getParameter("apiName"))) {
             BizResult login = userBiz.login(userName, password);
             if(!login.success){
                 modelMap.put("msg", ErrorCode.getMessage(CommonResultCode.USER_OR_PASSWORD_NOT_MATCH));

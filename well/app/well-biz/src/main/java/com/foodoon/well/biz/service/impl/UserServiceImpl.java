@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -82,7 +83,28 @@ public class UserServiceImpl implements UserService {
 
     @AppRequestMapping(apiName = "user.queryUserInfo", apiVersion = "1.0")
     public BizResult queryUserInfo(@AppRequestParam("sid") String sid) {
-        return null;
+        if(sid == null){
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+        SessionDO sessionDO = sessionBiz.querySessionBySID(sid);
+        if (sessionDO == null) {
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+        if ((new Date()).after(sessionDO.getExpireTime())) {
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+
+        try {
+            UserDO userDO = userDOMapper.selectByPrimaryKey(sessionDO.getUserId());
+            BizResult bizResult = new BizResult();
+            bizResult.data.put("user",userDO);
+            bizResult.success = true;
+            return bizResult;
+        } catch (Exception e) {
+            log.error("query user error", e);
+        }
+
+        return BizResultHelper.newCommonError();
     }
 
     @AppRequestMapping(apiName = "user.login", apiVersion = "1.0")
@@ -100,7 +122,27 @@ public class UserServiceImpl implements UserService {
 
     @AppRequestMapping(apiName = "user.loginOut", apiVersion = "1.0")
     public BizResult loginOut(@AppRequestParam("sid") String sid) {
-        return null;
+        if(sid == null){
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+        SessionDO sessionDO = sessionBiz.querySessionBySID(sid);
+        if (sessionDO == null) {
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+        if ((new Date()).after(sessionDO.getExpireTime())) {
+            return BizResultHelper.newResultCode(CommonResultCode.NEED_LOGIN);
+        }
+        Calendar instance = Calendar.getInstance();
+        instance.set(Calendar.YEAR,1970);
+        sessionDO.setExpireTime(instance.getTime());
+        try {
+            return sessionBiz.update(sessionDO);
+
+        } catch (Exception e) {
+            log.error("user login out error", e);
+        }
+
+        return BizResultHelper.newCommonError();
     }
 
     public void setUserBiz(UserBiz userBiz) {

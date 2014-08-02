@@ -2,15 +2,10 @@ package com.foodoon.well.web.common;
 
 
 import com.foodoon.well.util.AppRequestParam;
-import javassist.*;
-import javassist.bytecode.CodeAttribute;
-import javassist.bytecode.LocalVariableAttribute;
-import javassist.bytecode.MethodInfo;
+
 import org.springframework.util.ReflectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.text.ParseException;
 
 /**
@@ -18,7 +13,7 @@ import java.text.ParseException;
  */
 public class AppMethodInvoker {
 
-    public AppResponse invoke(AppRequest appRequest, AppHandle appHandle) throws NotFoundException, IllegalAccessException, ParseException, InstantiationException {
+    public AppResponse invoke(AppRequest appRequest, AppHandle appHandle) throws IllegalAccessException, ParseException, InstantiationException {
         Object[] args = new Object[0];
         AppResponse appResponse = new AppResponse();
 
@@ -35,7 +30,7 @@ public class AppMethodInvoker {
         return appResponse;
     }
 
-    private Object[] resolveArguments(AppHandle appHandle, AppRequest appRequest) throws IllegalAccessException, ParseException, InstantiationException, NotFoundException {
+    private Object[] resolveArguments(AppHandle appHandle, AppRequest appRequest) throws IllegalAccessException, ParseException, InstantiationException {
         Class[] paramTypes = appHandle.getHandleMethod().getParameterTypes();
         if (paramTypes.length == 0) {
             return null;
@@ -55,26 +50,6 @@ public class AppMethodInvoker {
         return args;
     }
 
-    private String[] resovleParamName(Class clazz, String methodName) throws NotFoundException {
-
-        ClassPool pool = ClassPool.getDefault();
-        pool.insertClassPath(new ClassClassPath(clazz));
-        CtClass cc = pool.get(clazz.getName());
-        CtMethod cm = cc.getDeclaredMethod(methodName);
-        MethodInfo methodInfo = cm.getMethodInfo();
-        CodeAttribute codeAttribute = methodInfo.getCodeAttribute();
-        LocalVariableAttribute attr = (LocalVariableAttribute) codeAttribute
-                .getAttribute(LocalVariableAttribute.tag);
-        if (attr == null) {
-            return new String[]{};
-        }
-        String[] paramNames = new String[cm.getParameterTypes().length];
-        int pos = Modifier.isStatic(cm.getModifiers()) ? 0 : 1;
-        for (int i = 0; i < paramNames.length; i++) {
-            paramNames[i] = attr.variableName(i + pos + 1);
-        }
-        return paramNames;
-    }
 
 
 }

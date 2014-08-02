@@ -26,7 +26,7 @@
     </bean>
 
     <bean id="user.loginOut" class="com.foodoon.well.biz.entity.ApiDefine">
-        <property name="apiName" value="user.login"></property>
+        <property name="apiName" value="user.loginOut"></property>
         <property name="apiVersion" value="1.0"></property>
         <property name="params">
             <map>
