@@ -14,4 +14,11 @@ $!challengeMsg详情
               </td>
           </tr>
 
+                <tr>
+              <td>用户ID</td>
+              <td>
+                  $!challengeMsgDO.userId
+              </td>
+          </tr>
+
         </table>

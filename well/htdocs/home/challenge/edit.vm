@@ -4,9 +4,9 @@
   <table class="table">
   #springBind("challengeEditForm.id")
   <input type="hidden" name="${status.expression}" value="$!status.value" />
-                #springBind("challengeEditForm.userId")
+                #springBind("challengeEditForm.teamId")
           <tr>
-              <td>用户ID</td>
+              <td>球队ID</td>
               <td>
                   <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
                   #foreach($error in $status.errorMessages) <b>$error</b>  #end

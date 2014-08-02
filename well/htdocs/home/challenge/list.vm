@@ -3,7 +3,7 @@
 <table  class="table">
     <thead>
  <tr>
-              <th>用户ID</th>
+              <th>球队ID</th>
               <th>场地ID</th>
               <th>约战日期</th>
               <th>约战条件</th>
@@ -14,7 +14,7 @@
     </thead>
 #foreach($f in $challengeDOList)
   <tr>
-               <td> $!f.userId</td>
+               <td> $!f.teamId</td>
                <td> $!f.courtId</td>
                <td> $!f.challengeTime</td>
                <td> $!f.challengeDesc</td>
@@ -27,4 +27,4 @@
 #end
 </table>
 
-$tile.load('home/common/page.vm').param('query',$query).param('path','challenge/list.htm')
+$tile.load('home/common/page.vm').param('query',$query).param('path','${doNameLower}/list.htm')

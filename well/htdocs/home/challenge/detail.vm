@@ -1,9 +1,9 @@
 $!challenge详情
   <table class="table">
                 <tr>
-              <td>用户ID</td>
+              <td>球队ID</td>
               <td>
-                  $!challengeDO.userId
+                  $!challengeDO.teamId
               </td>
           </tr>
 

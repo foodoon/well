@@ -21,4 +21,11 @@ $!team详情
               </td>
           </tr>
 
+                <tr>
+              <td>用户ID</td>
+              <td>
+                  $!teamDO.userId
+              </td>
+          </tr>
+
         </table>

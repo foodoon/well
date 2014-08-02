@@ -2,9 +2,9 @@
 
 <form name="challengeForm" action="$!homeServer.getURI("challenge/doCreate.htm")" method="post">
   <table class="table">
-    #springBind("challengeForm.userId")
+    #springBind("challengeForm.teamId")
     <tr>
-        <td>用户ID</td>
+        <td>球队ID</td>
         <td>
             <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
             #foreach($error in $status.errorMessages) <b>$error</b>  #end

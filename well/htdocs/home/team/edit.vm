@@ -28,6 +28,14 @@
                   #foreach($error in $status.errorMessages) <b>$error</b>  #end
               </td>
           </tr>
+                #springBind("teamEditForm.userId")
+          <tr>
+              <td>用户ID</td>
+              <td>
+                  <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
       	  <tr>
 	  <td colspan="2">
 	  <input type="submit" class="btn" value="提交"/></td>
