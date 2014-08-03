@@ -10,6 +10,18 @@
                 <ref local="user.update"></ref>
                 <ref local="user.login"></ref>
                 <ref local="user.login"></ref>
+                <ref local="team.apply"></ref>
+                <ref local="team.cancelApply"></ref>
+                <ref local="team.create"></ref>
+                <ref local="team.delete"></ref>
+                <ref local="team.update"></ref>
+                <ref local="team.passApply"></ref>
+                <ref local="team.rejectApply"></ref>
+                <ref local="team.queryApplyListForReview"></ref>
+                <ref local="team.queryMemberList"></ref>
+                <ref local="team.queryMyApplyList"></ref>
+                <ref local="team.removeMember"></ref>
+
             </list>
         </property>
     </bean>
@@ -62,6 +74,137 @@
                 <entry key="groundOfDaily" value="经常比赛的场地"></entry>
                 <entry key="special" value="特长"></entry>
 
+            </map>
+        </property>
+    </bean>
+
+    <bean id="team.apply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.apply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="teamId" value="球队ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.cancelApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.cancelApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="申请记录ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.create" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.create"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="name" value="球队名称"></entry>
+                <entry key="teamDesc" value="球队介绍"></entry>
+                <entry key="canJoin" value="是否开放加入"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="team.update" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.update"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="name" value="球队名称"></entry>
+                <entry key="teamDesc" value="球队介绍"></entry>
+                <entry key="canJoin" value="是否开放加入"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="team.delete" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.delete"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="id" value="球队ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.passApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.passApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="申请记录ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.rejectApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.rejectApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="申请记录ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.queryApplyListForReview" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.queryApplyListForReview"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.queryMyApplyList" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.queryMyApplyList"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.removeMember" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.removeMember"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="removeUserId" value="被移除用户ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="team.queryMemberList" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="team.queryMemberList"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数"></entry>
             </map>
         </property>
     </bean>

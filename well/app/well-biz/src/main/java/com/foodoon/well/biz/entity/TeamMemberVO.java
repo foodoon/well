@@ -1,26 +1,11 @@
 package com.foodoon.well.biz.entity;
 
-import com.foodoon.well.dao.domain.TeamDO;
 
 /**
  * Created by foodoon on 2014/8/3.
  */
-public class TeamMemberVO extends TeamDO {
+public class TeamMemberVO  {
 
-    public TeamMemberVO(){
-
-    }
-
-    public TeamMemberVO(TeamDO teamDO){
-        this.setIsDeleted(teamDO.getIsDeleted());
-        this.setCanJoin(teamDO.getCanJoin());
-        this.setUserId(teamDO.getUserId());
-        this.setGmtModify(teamDO.getGmtModify());
-        this.setGmtCreate(teamDO.getGmtCreate());
-        this.setId(teamDO.getId());
-        this.setName(teamDO.getName());
-        this.setTeamDesc(teamDO.getTeamDesc());
-    }
 
     private int memberUserId;
 
@@ -28,5 +13,27 @@ public class TeamMemberVO extends TeamDO {
 
     private String memberUserRealName;
 
+    public int getMemberUserId() {
+        return memberUserId;
+    }
 
+    public void setMemberUserId(int memberUserId) {
+        this.memberUserId = memberUserId;
+    }
+
+    public String getMemberUserName() {
+        return memberUserName;
+    }
+
+    public void setMemberUserName(String memberUserName) {
+        this.memberUserName = memberUserName;
+    }
+
+    public String getMemberUserRealName() {
+        return memberUserRealName;
+    }
+
+    public void setMemberUserRealName(String memberUserRealName) {
+        this.memberUserRealName = memberUserRealName;
+    }
 }

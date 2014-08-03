@@ -233,6 +233,12 @@ public class TeamServiceImpl implements TeamService{
         teamApplyDO.setStatus(ApplyStatusEnum.PASS.value);
         try {
             teamApplyDOMapper.updateByPrimaryKeySelective(teamApplyDO);
+            TeamMemberDO teamMemberDO = new TeamMemberDO();
+            teamMemberDO.setUserId(teamApplyDO.getUserId());
+            teamMemberDO.setTeamId(teamApplyDO.getTeamId());
+            teamMemberDO.setGmtCreate(new Date());
+            teamMemberDO.setGmtModify(new Date());
+            teamMemberDOMapper.insert(teamMemberDO);
             return BizResultHelper.newSuccess();
         }catch(Exception e){
             log.error("pass apply error",e);
@@ -359,11 +365,41 @@ public class TeamServiceImpl implements TeamService{
         return bizResult1;
     }
 
-
+    @AppRequestMapping(apiName = "team.removeMember", apiVersion = "1.0")
     public BizResult removeMember(@AppRequestParam("sid") String sid,@AppRequestParam("removeUserId")  int removeUserId) {
-        return null;
+        if( !StringUtils.hasText(sid) || removeUserId <1){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        BizResult bizResult = sessionBiz.checkSession(sid);
+        if(!bizResult.success) {
+            return bizResult;
+        }
+        SessionDO sessionDO = (SessionDO)bizResult.data.get("sessionDO");
+        TeamDOCriteria teamDOCriteria = new TeamDOCriteria();
+        teamDOCriteria.createCriteria().andUserIdEqualTo(sessionDO.getUserId());
+        List<TeamDO> teamDOs = teamDOMapper.selectByExample(teamDOCriteria);
+        if(teamDOs.size() == 0){
+            BizResult bizResult1 = new BizResult();
+            bizResult1.data.put("list", Collections.emptyList());
+            return bizResult1;
+        }
+        //判断是否是自己球队的成员
+        TeamMemberDOCriteria teamMemberDOCriteria = new TeamMemberDOCriteria();
+        teamMemberDOCriteria.createCriteria().andTeamIdEqualTo(teamDOs.get(0).getId())
+        .andUserIdEqualTo(sessionDO.getUserId());
+        List<TeamMemberDO> teamMemberDOs = teamMemberDOMapper.selectByExample(teamMemberDOCriteria);
+        if(teamMemberDOs.size()!=1){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        try {
+             teamMemberDOMapper.deleteByPrimaryKey(teamMemberDOs.get(0).getId());
+            return BizResultHelper.newSuccess();
+        }catch(Exception e){
+            log.error("delete member error");
+        }
+        return BizResultHelper.newCommonError();
     }
-
+    @AppRequestMapping(apiName = "team.queryMemberList", apiVersion = "1.0")
     public BizResult queryMemberList(@AppRequestParam("sid") String sid ,@AppRequestParam("sid")int pageNo,@AppRequestParam("sid")int pageSize) {
         if( !StringUtils.hasText(sid)){
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -388,8 +424,25 @@ public class TeamServiceImpl implements TeamService{
         TeamMemberDOCriteria teamMemberDOCriteria = new TeamMemberDOCriteria();
         teamMemberDOCriteria.createCriteria().andTeamIdEqualTo(teamDOs.get(0).getId());
         List<TeamMemberDO> teamMemberDOs = teamMemberDOMapper.selectByExample(teamMemberDOCriteria);
-        List<TeamMemberVO> teamMemberVOList = new ArrayList<TeamApplyVO>(teamMemberDOs.size());
-        return null;
+        int i = teamMemberDOMapper.countByExample(teamMemberDOCriteria);
+        baseQuery.setTotalCount(i);
+        List<TeamMemberVO> teamMemberVOList = new ArrayList<TeamMemberVO>(teamMemberDOs.size());
+        for(TeamMemberDO teamMemberDO:teamMemberDOs){
+
+            UserDO userDO = userDOMapper.selectByPrimaryKey(teamMemberDO.getUserId());
+            if(userDO!=null){
+                TeamMemberVO teamMemberVO = new TeamMemberVO();
+                teamMemberVO.setMemberUserId(userDO.getId());
+                teamMemberVO.setMemberUserName(userDO.getUserName());
+                teamMemberVO.setMemberUserRealName(userDO.getRealName());
+                teamMemberVOList.add(teamMemberVO);
+            }
+
+        }
+        bizResult.data.put("teamDO",teamDOs.get(0));
+        bizResult.data.put("memberList",teamMemberVOList);
+        bizResult.data.put("query",baseQuery);
+        return bizResult;
     }
 
 }
