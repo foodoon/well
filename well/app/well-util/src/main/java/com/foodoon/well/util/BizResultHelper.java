@@ -25,6 +25,7 @@ public class BizResultHelper {
 
     public static BizResult newSuccess() {
         BizResult bizResult  = new BizResult();
+        bizResult.success = true;
         bizResult.code = CommonResultCode.SUCCESS;
         bizResult.msg = ErrorCode.getMessage(CommonResultCode.SUCCESS);
         return bizResult;

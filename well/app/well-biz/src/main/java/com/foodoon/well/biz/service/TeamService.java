@@ -33,4 +33,6 @@ public interface TeamService {
 
     public BizResult queryMemberList(String sid,int pageNo,int pageSize);
 
+    public BizResult queryTeamList(String sid,int pageNo,int pageSize);
+
 }

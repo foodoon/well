@@ -21,6 +21,8 @@ public interface CourtService {
 
     public boolean passApply(String sid,int applyId);
 
+    public boolean rejectApply(String sid,int applyId);
+
     public List<CourtDO> queryReserveList(String sid);
 
     public List<CourtDO> queryReserveListForReview(String sid);

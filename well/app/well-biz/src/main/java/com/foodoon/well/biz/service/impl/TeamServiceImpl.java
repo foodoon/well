@@ -65,6 +65,10 @@ public class TeamServiceImpl implements TeamService{
         if(teamDO.getCanJoin() != 1){
             return BizResultHelper.newResultCode(CommonResultCode.TEAM_NOT_OPEN);
         }
+        //自己不能加入自己的球队
+        if(sessionDO.getUserId() == teamDO.getUserId()){
+            return BizResultHelper.newResultCode(CommonResultCode.TEAM_ALLOW_NOT_ALLOW);
+        }
         TeamApplyDO teamApplyDO = new TeamApplyDO();
         teamApplyDO.setGmtCreate(new Date());
         teamApplyDO.setGmtModify(new Date());
@@ -282,7 +286,7 @@ public class TeamServiceImpl implements TeamService{
     }
 
     @AppRequestMapping(apiName = "team.queryApplyListForReview", apiVersion = "1.0")
-    public BizResult queryApplyListForReview(@AppRequestParam("sid") String sid,@AppRequestParam("sid")int pageNo,@AppRequestParam("sid")int pageSize) {
+    public BizResult queryApplyListForReview(@AppRequestParam("sid") String sid,@AppRequestParam("pageNo")int pageNo,@AppRequestParam("pageSize")int pageSize) {
         if( !StringUtils.hasText(sid)){
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
         }
@@ -319,7 +323,7 @@ public class TeamServiceImpl implements TeamService{
     }
 
     @AppRequestMapping(apiName = "team.queryMyApplyList", apiVersion = "1.0")
-    public BizResult queryMyApplyList(@AppRequestParam("sid") String sid ,@AppRequestParam("sid")int pageNo,@AppRequestParam("sid")int pageSize) {
+    public BizResult queryMyApplyList(@AppRequestParam("sid") String sid ,@AppRequestParam("pageNo")int pageNo,@AppRequestParam("pageSize")int pageSize) {
         if( !StringUtils.hasText(sid)){
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
         }
@@ -400,7 +404,7 @@ public class TeamServiceImpl implements TeamService{
         return BizResultHelper.newCommonError();
     }
     @AppRequestMapping(apiName = "team.queryMemberList", apiVersion = "1.0")
-    public BizResult queryMemberList(@AppRequestParam("sid") String sid ,@AppRequestParam("sid")int pageNo,@AppRequestParam("sid")int pageSize) {
+    public BizResult queryMemberList(@AppRequestParam("sid") String sid ,@AppRequestParam("pageNo")int pageNo,@AppRequestParam("pageSize")int pageSize) {
         if( !StringUtils.hasText(sid)){
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
         }
@@ -442,6 +446,35 @@ public class TeamServiceImpl implements TeamService{
         bizResult.data.put("teamDO",teamDOs.get(0));
         bizResult.data.put("memberList",teamMemberVOList);
         bizResult.data.put("query",baseQuery);
+        return bizResult;
+    }
+    @AppRequestMapping(apiName = "team.queryTeamList", apiVersion = "1.0")
+    public BizResult queryTeamList(String sid, int pageNo, int pageSize) {
+        if( !StringUtils.hasText(sid)){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        BizResult bizResult = sessionBiz.checkSession(sid);
+        if(!bizResult.success) {
+            return bizResult;
+        }
+        SessionDO sessionDO = (SessionDO)bizResult.data.get("sessionDO");
+        BaseQuery baseQuery = new BaseQuery();
+        baseQuery.setPageNo(pageNo);
+        baseQuery.setPageSize(pageSize);
+        TeamDOCriteria teamDOCriteria = new TeamDOCriteria();
+        teamDOCriteria.createCriteria().andUserIdNotEqualTo(sessionDO.getUserId());
+        List<TeamDO> teamDOs = teamDOMapper.selectByExample(teamDOCriteria);
+        if(teamDOs.size() == 0){
+            BizResult bizResult1 = new BizResult();
+            bizResult1.data.put("list", Collections.emptyList());
+            bizResult1.data.put("query",baseQuery);
+            return bizResult1;
+        }
+        int count = teamDOMapper.countByExample(teamDOCriteria);
+        baseQuery.setTotalCount(count);
+        bizResult.data.put("teamList",teamDOs);
+        bizResult.data.put("query",baseQuery);
+        bizResult.success=true;
         return bizResult;
     }
 
