@@ -27,5 +27,22 @@ public class CommonResultCode {
 
     public static final String PERSSION_ERROR = "PERSSION_ERROR";
 
+    public static final String TEAM_NOT_EXIST = "TEAM_NOT_EXIST";
+
+    public static final String TEAM_NOT_OPEN = "TEAM_NOT_OPEN";
+    public static final String TEAM_CREATE_ONLY_ONE = "TEAM_CREATE_ONLY_ONE";
+
+
+    public static final String TEAM_APPLY_NOT_EXIST = "TEAM_APPLY_NOT_EXIST";
+    public static final String TEAM_APPLY_STATUS_ERROR = "TEAM_APPLY_STATUS_ERROR";
+
+    public static final String COURT_NOT_EXIST = "COURT_NOT_EXIST";
+
+    public static final String COURT_APPLY_NOT_EXIST = "COURT_APPLY_NOT_EXIST";
+
+    public static final String CHALLENGE_NOT_EXIST = "CHALLENGE_NOT_EXIST";
+
+    public static final String GOODS_NOT_EXIST = "GOODS_NOT_EXIST";
+
 
 }

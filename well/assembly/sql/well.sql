@@ -265,3 +265,14 @@ CREATE TABLE `well_user` (
 -- ----------------------------
 
 INSERT INTO `well_user` VALUES ('13', 'zhangsan', null, null, null, 'AEF42A4125884C16D6AB400F7F6954CA', null, null, null, null, null, null, '2014-08-01 17:34:18', '2014-08-01 17:34:18');
+
+
+DROP TABLE IF EXISTS `well_team_member`;
+CREATE TABLE `well_team_member` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `gmt_create` datetime NOT NULL,
+  `gmt_modify` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

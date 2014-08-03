@@ -48,4 +48,8 @@
   <property name="mapperInterface" value="com.foodoon.well.dao.SessionDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
  </bean>
+ <bean id="teamMemberDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+  <property name="mapperInterface" value="com.foodoon.well.dao.TeamMemberDOMapper"/>
+  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+ </bean>
 </beans>

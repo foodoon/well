@@ -21,12 +21,16 @@ public interface TeamService {
 
     public BizResult delete(String sid,int id);
 
-    public BizResult queryMyApplyList(String sid);
+    public BizResult queryMyApplyList(String sid,int pageNo,int pageSize);
 
     public BizResult passApply(String sid,int applyId);
 
     public BizResult rejectApply(String sid,int applyId);
 
-    public BizResult queryApplyListForReview(String sid);
+    public BizResult queryApplyListForReview(String sid,int pageNo,int pageSize);
+
+    public BizResult removeMember(String sid,int removeUserId);
+
+    public BizResult queryMemberList(String sid,int pageNo,int pageSize);
 
 }
