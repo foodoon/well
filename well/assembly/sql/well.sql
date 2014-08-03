@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `well_challenge`;
 CREATE TABLE `well_challenge` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `team_id` int(11) NOT NULL,
   `court_id` int(11) NOT NULL,
   `challenge_time` date NOT NULL,
   `challenge_desc` varchar(1024) DEFAULT NULL,
@@ -65,6 +65,7 @@ DROP TABLE IF EXISTS `well_challenge_msg`;
 CREATE TABLE `well_challenge_msg` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `challenge_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `msg` varchar(1024) NOT NULL,
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `gmt_modify` datetime NOT NULL,
@@ -185,6 +186,7 @@ CREATE TABLE `well_session` (
 DROP TABLE IF EXISTS `well_team`;
 CREATE TABLE `well_team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `team_desc` varchar(1024) DEFAULT NULL,
   `can_join` int(11) DEFAULT NULL,
@@ -224,6 +226,7 @@ DROP TABLE IF EXISTS `well_team_recruit`;
 CREATE TABLE `well_team_recruit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
+  `team_id` int(11) NOT NULL,
   `recruit_desc` varchar(1024) DEFAULT NULL,
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `gmt_modify` datetime NOT NULL,
@@ -260,16 +263,5 @@ CREATE TABLE `well_user` (
 -- ----------------------------
 -- Records of well_user
 -- ----------------------------
-INSERT INTO `well_user` VALUES ('1', '??', 'aa', 'ww', 'ww', '11111', 'ww', '11', '11', '11', '1', '22', '2014-07-30 20:18:47', '2014-07-30 20:18:47');
-INSERT INTO `well_user` VALUES ('2', '??', 'aa', 'ww', 'ww', '11111', 'ww', '11', '11', '11', '1', '22', '2014-07-30 20:19:58', '2014-07-30 20:19:58');
-INSERT INTO `well_user` VALUES ('3', '??', 'aa', 'ww', 'ww', '11111', 'ww', '11', '11', '11', '1', '22', '2014-07-30 20:20:20', '2014-07-30 20:20:20');
-INSERT INTO `well_user` VALUES ('4', 'ad', '臧三', '1', '2', '22', '2', '2', '2', '2', '1', '3', '2014-07-30 20:32:23', '2014-07-30 20:32:23');
-INSERT INTO `well_user` VALUES ('5', '12', '??', '1', '1', '1ee', '13588339905', '1', '1', '1', '1', '1', '2014-07-30 20:32:51', '2014-07-30 20:32:51');
-INSERT INTO `well_user` VALUES ('6', '111', '??', '11', '1', '1', '1', '11', '1', '1', '1', '1', '2014-07-30 20:35:57', '2014-07-30 20:35:57');
-INSERT INTO `well_user` VALUES ('7', '22', '??', '2', '2', '22', '2', '2', '2', '2', '2', '2', '2014-07-30 20:41:27', '2014-07-30 20:41:27');
-INSERT INTO `well_user` VALUES ('8', 'a', '??', '1', '1', '11', '1', '1', '1', '1', '1', '1', '2014-07-30 20:50:43', '2014-07-30 20:50:43');
-INSERT INTO `well_user` VALUES ('9', '1', '??', '1', '1', '11', '1', '1', '1', '1', '1', '1', '2014-07-30 20:55:08', '2014-07-30 20:55:08');
-INSERT INTO `well_user` VALUES ('10', '1', '房贷', '111', '1', '1', '1', '111', '1', '1', '1', '1', '2014-07-30 21:13:27', '2014-07-30 21:13:27');
-INSERT INTO `well_user` VALUES ('11', '1', '房贷', '1', '1', '11', '11', '111', '11', '1', '1', '1', '2014-07-31 05:53:12', '2014-07-31 05:53:12');
-INSERT INTO `well_user` VALUES ('12', 'fafdad', null, null, null, '1', null, null, null, null, null, null, '2014-08-01 06:18:51', '2014-08-01 06:18:51');
+
 INSERT INTO `well_user` VALUES ('13', 'zhangsan', null, null, null, 'AEF42A4125884C16D6AB400F7F6954CA', null, null, null, null, null, null, '2014-08-01 17:34:18', '2014-08-01 17:34:18');

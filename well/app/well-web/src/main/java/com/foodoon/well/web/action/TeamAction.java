@@ -35,7 +35,6 @@ public class TeamAction {
         int pageSize = RequestUtil.getInt(request, "pageSize");
         BaseQuery baseQuery = new BaseQuery();
         baseQuery.setPageNo(pageId);
-
         modelMap.put("query",baseQuery);
         BizResult bizResult = teamBiz.list(baseQuery);
         if (bizResult.success) {
@@ -82,7 +81,7 @@ public class TeamAction {
     }
 
     @RequestMapping(value = "team/doCreate.htm", method = RequestMethod.POST)
-    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid TeamForm teamForm,
+    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid  TeamForm teamForm,
         BindingResult result, Map<String,Object> model) {
         if (result.hasErrors()) {
             return "team/create.vm";
@@ -113,12 +112,12 @@ public class TeamAction {
 
     }
 
-    @RequestMapping(value = "team/doDelete.htm")
+    @RequestMapping(value = "team/doDelete.htm", method = RequestMethod.POST)
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = teamBiz.delete(id);
         if (bizResult.success) {
-            return "redirect:/team/list.htm";
+            return "team/list.htm";
         } else {
             return "common/error.vm";
         }

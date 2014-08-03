@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.service;
 
+import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.biz.entity.TeamApplyVO;
 import com.foodoon.well.dao.domain.TeamDO;
 
@@ -10,22 +11,22 @@ import java.util.List;
  */
 public interface TeamService {
 
-    public boolean apply(int teamId,int userId);
+    public BizResult apply(String sid,int teamId);
 
-    public boolean cancelApply(int applyId);
+    public BizResult cancelApply(String sid,int applyId);
 
-    public boolean create(TeamDO teamDO);
+    public BizResult create(String sid,TeamDO teamDO);
 
-    public boolean update(TeamDO teamDO);
+    public BizResult update(String sid,TeamDO teamDO);
 
-    public boolean delete(TeamDO teamDO);
+    public BizResult delete(String sid,int id);
 
-    public List<TeamApplyVO> queryMyApplyList(int userId);
+    public BizResult queryMyApplyList(String sid);
 
-    public boolean passApply(int applyId);
+    public BizResult passApply(String sid,int applyId);
 
-    public boolean rejectApply(int applyId);
+    public BizResult rejectApply(String sid,int applyId);
 
-    public List<TeamApplyVO> queryApplyListForReview(int userId);
+    public BizResult queryApplyListForReview(String sid);
 
 }

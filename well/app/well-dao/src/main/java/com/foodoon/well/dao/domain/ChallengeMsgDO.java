@@ -12,6 +12,8 @@ public class ChallengeMsgDO {
 
     @GenField(cn="评论内容",order=1,inSearchForm = false,canNull = false)
     private String msg;
+    @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
+    private Integer userId;
 
     private Integer isDeleted;
 
@@ -33,6 +35,14 @@ public class ChallengeMsgDO {
 
     public void setChallengeId(Integer challengeId) {
         this.challengeId = challengeId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getMsg() {

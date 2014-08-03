@@ -1,8 +1,11 @@
 package com.foodoon.well.biz.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.foodoon.well.util.BizResultHelper;
+import com.foodoon.well.util.CommonResultCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -104,6 +107,17 @@ public class SessionBizImpl implements SessionBiz{
             logger.error("view Session list error", e);
         }
         return null;
+    }
+
+    public BizResult checkSession(String sid) {
+        SessionDO sessionDO = querySessionBySID(sid);
+        if(sessionDO == null || (new Date()).after(sessionDO.getExpireTime())){
+            return BizResultHelper.newResultCode(CommonResultCode.SESSION_EXPIRE);
+        }
+        BizResult bizResult = new BizResult();
+        bizResult.success = true;
+        bizResult.data.put("sessionDO",sessionDO);
+        return bizResult;
     }
 
 }

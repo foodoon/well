@@ -81,7 +81,7 @@ public class ChallengeMsgAction {
     }
 
     @RequestMapping(value = "challengeMsg/doCreate.htm", method = RequestMethod.POST)
-    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid ChallengeMsgForm challengeMsgForm,
+    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid  ChallengeMsgForm challengeMsgForm,
         BindingResult result, Map<String,Object> model) {
         if (result.hasErrors()) {
             return "challengeMsg/create.vm";
@@ -112,12 +112,12 @@ public class ChallengeMsgAction {
 
     }
 
-    @RequestMapping(value = "challengeMsg/doDelete.htm")
+    @RequestMapping(value = "challengeMsg/doDelete.htm", method = RequestMethod.POST)
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = challengeMsgBiz.delete(id);
         if (bizResult.success) {
-            return "challengeMsg/list.vm";
+            return "challengeMsg/list.htm";
         } else {
             return "common/error.vm";
         }

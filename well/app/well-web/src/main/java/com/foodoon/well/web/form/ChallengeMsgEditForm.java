@@ -3,7 +3,7 @@ package com.foodoon.well.web.form;
 import com.foodoon.well.dao.domain.ChallengeMsgDO;
 
 
-public class ChallengeMsgEditForm extends ChallengeMsgForm {
+public class ChallengeMsgEditForm extends ChallengeMsgForm{
 
     private Integer id;
 
@@ -15,18 +15,19 @@ public class ChallengeMsgEditForm extends ChallengeMsgForm {
         this.id = id;
     }
 
-    public ChallengeMsgDO toDO() {
-        ChallengeMsgDO challengeMsgDO = super.toDO();
+    public ChallengeMsgDO toDO(){
+        ChallengeMsgDO challengeMsgDO  =super.toDO();
         challengeMsgDO.setId(this.id);
         return challengeMsgDO;
     }
 
-    public void initForm(ChallengeMsgDO challengeMsgDO) {
-        if (challengeMsgDO == null) {
-            return;
-        }
-        this.setChallengeId(challengeMsgDO.getChallengeId());
-        this.setMsg(challengeMsgDO.getMsg());
+    public void initForm(ChallengeMsgDO challengeMsgDO){
+        if(challengeMsgDO == null){
+        return ;
     }
+    this.setChallengeId(challengeMsgDO.getChallengeId());
+    this.setMsg(challengeMsgDO.getMsg());
+    this.setUserId(challengeMsgDO.getUserId());
+}
 
 }

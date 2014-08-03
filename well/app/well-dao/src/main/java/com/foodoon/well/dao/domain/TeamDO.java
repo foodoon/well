@@ -15,6 +15,9 @@ public class TeamDO {
 
     @GenField(cn="是否开放加入",order=1,inSearchForm = false,canNull = false)
     private Integer canJoin;
+    @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
+    private Integer userId;
+
 
     private Integer isDeleted;
 
@@ -30,6 +33,14 @@ public class TeamDO {
         this.id = id;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public String getName() {
         return name;
     }
@@ -42,8 +53,8 @@ public class TeamDO {
         return teamDesc;
     }
 
-    public void setTeamDesc(String desc) {
-        this.teamDesc = desc == null ? null : desc.trim();
+    public void setTeamDesc(String teamDesc) {
+        this.teamDesc = teamDesc == null ? null : teamDesc.trim();
     }
 
     public Integer getCanJoin() {

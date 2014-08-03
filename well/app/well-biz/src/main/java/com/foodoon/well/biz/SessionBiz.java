@@ -18,4 +18,8 @@ public interface SessionBiz {
 
         SessionDO querySessionBySID(String sid);
 
+        BizResult checkSession(String sid);
+
+
+
 }

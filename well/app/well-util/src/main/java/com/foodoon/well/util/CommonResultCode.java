@@ -25,5 +25,7 @@ public class CommonResultCode {
 
     public static final String SUCCESS = "SUCCESS";
 
+    public static final String PERSSION_ERROR = "PERSSION_ERROR";
+
 
 }

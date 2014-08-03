@@ -13,6 +13,7 @@ import com.foodoon.well.dao.domain.UserDOCriteria;
 import com.foodoon.well.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import java.util.Calendar;
@@ -24,11 +25,11 @@ import java.util.Date;
 public class UserServiceImpl implements UserService {
     private final static Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
-
+    @Autowired
     private UserBiz userBiz;
-
+    @Autowired
     private UserDOMapper userDOMapper;
-
+    @Autowired
     private SessionBiz sessionBiz;
 
     @AppRequestMapping(apiName = "user.reg", apiVersion = "1.0")
@@ -145,15 +146,5 @@ public class UserServiceImpl implements UserService {
         return BizResultHelper.newCommonError();
     }
 
-    public void setUserBiz(UserBiz userBiz) {
-        this.userBiz = userBiz;
-    }
 
-    public void setUserDOMapper(UserDOMapper userDOMapper) {
-        this.userDOMapper = userDOMapper;
-    }
-
-    public void setSessionBiz(SessionBiz sessionBiz) {
-        this.sessionBiz = sessionBiz;
-    }
 }

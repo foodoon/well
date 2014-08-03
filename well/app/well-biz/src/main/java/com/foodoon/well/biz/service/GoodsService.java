@@ -9,19 +9,19 @@ import java.util.List;
  */
 public interface GoodsService {
 
-    public boolean create(GoodsDO goodsDO);
+    public boolean create(String sid,GoodsDO goodsDO);
 
-    public boolean update(GoodsDO goodsDO);
+    public boolean update(String sid,GoodsDO goodsDO);
 
-    public boolean delete(int id);
+    public boolean delete(String sid,int id);
 
     public List<GoodsDO> queryListByCourtId(int courtId);
 
-    public List<GoodsDO> queryListByBuyer(int userId);
+    public List<GoodsDO> queryListByBuyer(String sid);
 
-    public List<GoodsDO> queryListBySeller(int userId);
+    public List<GoodsDO> queryListBySeller(String sid);
 
-    public boolean buy(int id);
+    public boolean buy(String sid,int id);
 
-    public boolean cancelBuy(int tradeId);
+    public boolean cancelBuy(String sid,int tradeId);
 }

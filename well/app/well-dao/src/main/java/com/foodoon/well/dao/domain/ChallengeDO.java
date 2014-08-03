@@ -7,8 +7,8 @@ import java.util.Date;
 public class ChallengeDO {
     private Integer id;
 
-    @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
-    private Integer userId;
+    @GenField(cn="球队ID",order=1,inSearchForm = false,canNull = false)
+    private Integer teamId;
 
     @GenField(cn="场地ID",order=1,inSearchForm = false,canNull = false)
     private Integer courtId;
@@ -39,12 +39,12 @@ public class ChallengeDO {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getTeamId() {
+        return teamId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
     public Integer getCourtId() {

@@ -12,14 +12,14 @@ import java.util.List;
 public interface ChallengeService {
 
 
-    public boolean create(ChallengeDO challengeDO);
+    public boolean create(String sid,ChallengeDO challengeDO);
 
-    public boolean update(ChallengeDO challengeDO);
+    public boolean update(String sid,ChallengeDO challengeDO);
 
-    public boolean delete(int id);
+    public boolean delete(String sid,int id);
 
-    public List<ChallengeMsgDO> queryList(int challengeId);
+    public List<ChallengeMsgDO> queryList(String sid,int challengeId);
 
-    public boolean comment(int challengeId,String msg);
+    public boolean comment(String sid,int challengeId,String msg);
 
 }
