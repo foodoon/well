@@ -22,6 +22,18 @@
                 <ref local="team.queryMyApplyList"></ref>
                 <ref local="team.removeMember"></ref>
                 <ref local="team.queryTeamList"></ref>
+
+                <ref local="court.apply"></ref>
+                <ref local="court.cancelApply"></ref>
+                <ref local="court.create"></ref>
+                <ref local="court.delete"></ref>
+                <ref local="court.passApply"></ref>
+                <ref local="court.queryBookingList"></ref>
+                <ref local="court.queryBookingListForReview"></ref>
+                <ref local="court.rejectApply"></ref>
+                <ref local="court.update"></ref>
+
+
             </list>
         </property>
     </bean>
@@ -217,6 +229,127 @@
                 <entry key="password" value="密码"></entry>
                 <entry key="pageNo" value="页码"></entry>
                 <entry key="pageSize" value="每页记录数"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="court.create" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.create"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="name" value="场地名称"></entry>
+                <entry key="address" value="场地地址"></entry>
+                <entry key="type" value="场地类型"></entry>
+                <entry key="openTime" value="场地开放时间"></entry>
+                <entry key="courtDesc" value="场地描述"></entry>
+                <entry key="square" value="场地面积"></entry>
+                <entry key="status" value="是否开放"></entry>
+
+            </map>
+        </property>
+    </bean>
+
+    <bean id="court.update" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.update"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="id" value="场地ID"></entry>
+                <entry key="name" value="场地名称"></entry>
+                <entry key="address" value="场地地址"></entry>
+                <entry key="type" value="场地类型"></entry>
+                <entry key="openTime" value="场地开放时间"></entry>
+                <entry key="courtDesc" value="场地描述"></entry>
+                <entry key="square" value="场地面积"></entry>
+                <entry key="status" value="是否开放"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="court.delete" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.delete"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="id" value="场地ID"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="court.apply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.apply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="courtId" value="场地ID"></entry>
+                <entry key="applyTime" value="预定时间(yyyyMMddHHmmss格式)"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="court.cancelApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.cancelApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="预约ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="court.passApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.passApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="预约ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="court.rejectApply" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.rejectApply"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="applyId" value="预约ID"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="court.queryBookingList" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.queryBookingList"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数(可为空，默认20)"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="court.queryBookingListForReview" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="court.queryBookingListForReview"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数(可为空，默认20)"></entry>
             </map>
         </property>
     </bean>

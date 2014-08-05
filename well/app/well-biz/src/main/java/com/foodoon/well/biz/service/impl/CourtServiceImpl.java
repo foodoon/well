@@ -14,7 +14,6 @@ import com.foodoon.well.dao.domain.*;
 import com.foodoon.well.util.*;
 import com.foodoon.well.util.enums.ApplyStatusEnum;
 import com.foodoon.well.util.enums.OpenTimeEnum;
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +42,7 @@ public class CourtServiceImpl implements CourtService {
     @Autowired
     private CourtApplyDOMapper courtApplyDOMapper;
 
+    @AppRequestMapping(apiName = "court.create", apiVersion = "1.0")
     public BizResult create(@AppRequestParam("sid") String sid, CourtDO courtDO) {
         if (!StringUtils.hasText(sid) || courtDO == null || !StringUtils.hasText(courtDO.getName())
                 || !StringUtils.hasText(courtDO.getAddress())
@@ -67,7 +67,7 @@ public class CourtServiceImpl implements CourtService {
         }
         return BizResultHelper.newCommonError();
     }
-
+    @AppRequestMapping(apiName = "court.update", apiVersion = "1.0")
     public BizResult update(@AppRequestParam("sid") String sid, CourtDO courtDO) {
         if (!StringUtils.hasText(sid) || courtDO == null || courtDO.getId() < 1) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -98,6 +98,7 @@ public class CourtServiceImpl implements CourtService {
         return BizResultHelper.newCommonError();
     }
 
+    @AppRequestMapping(apiName = "court.delete", apiVersion = "1.0")
     public BizResult delete(@AppRequestParam("sid") String sid, @AppRequestParam("id") int id) {
         if (!StringUtils.hasText(sid) || id < 1) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -127,6 +128,7 @@ public class CourtServiceImpl implements CourtService {
         return BizResultHelper.newCommonError();
     }
 
+    @AppRequestMapping(apiName = "court.apply", apiVersion = "1.0")
     public BizResult apply(@AppRequestParam("sid") String sid, @AppRequestParam("courtId") int courtId, @AppRequestParam("applyTime") String applyTime) {
         if (!StringUtils.hasText(sid) || courtId < 1 || !StringUtils.hasText(applyTime)) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -197,6 +199,7 @@ public class CourtServiceImpl implements CourtService {
 
     }
 
+    @AppRequestMapping(apiName = "court.cancelApply", apiVersion = "1.0")
     public BizResult cancelApply(@AppRequestParam("sid") String sid, @AppRequestParam("applyId") int applyId) {
         if (!StringUtils.hasText(sid) || applyId < 1) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -227,6 +230,7 @@ public class CourtServiceImpl implements CourtService {
         return BizResultHelper.newCommonError();
     }
 
+    @AppRequestMapping(apiName = "court.passApply", apiVersion = "1.0")
     public BizResult passApply(@AppRequestParam("sid") String sid, @AppRequestParam("applyId") int applyId) {
         if (!StringUtils.hasText(sid) || applyId < 1) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -262,6 +266,7 @@ public class CourtServiceImpl implements CourtService {
         return BizResultHelper.newCommonError();
     }
 
+    @AppRequestMapping(apiName = "court.rejectApply", apiVersion = "1.0")
     public BizResult rejectApply(@AppRequestParam("sid") String sid, @AppRequestParam("applyId") int applyId) {
         if (!StringUtils.hasText(sid) || applyId < 1) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -297,6 +302,7 @@ public class CourtServiceImpl implements CourtService {
         return BizResultHelper.newCommonError();
     }
 
+    @AppRequestMapping(apiName = "court.queryBookingList", apiVersion = "1.0")
     public BizResult queryBookingList(@AppRequestParam("sid") String sid,@AppRequestParam("pageNo")int pageNo,@AppRequestParam("pageSize")int pageSize) {
         if (!StringUtils.hasText(sid)) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
@@ -334,6 +340,7 @@ public class CourtServiceImpl implements CourtService {
         return bizResult;
     }
 
+    @AppRequestMapping(apiName = "court.queryBookingListForReview", apiVersion = "1.0")
     public BizResult queryBookingListForReview(String sid,@AppRequestParam("pageNo")int pageNo,@AppRequestParam("pageSize")int pageSize) {
         if (!StringUtils.hasText(sid)) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
