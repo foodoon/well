@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.service;
 
+import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.dao.domain.ChallengeDO;
 import com.foodoon.well.dao.domain.ChallengeMsgDO;
 
@@ -12,14 +13,20 @@ import java.util.List;
 public interface ChallengeService {
 
 
-    public boolean create(String sid,ChallengeDO challengeDO);
+    public BizResult create(String sid,ChallengeDO challengeDO);
 
-    public boolean update(String sid,ChallengeDO challengeDO);
+    public BizResult update(String sid,ChallengeDO challengeDO);
 
-    public boolean delete(String sid,int id);
+    public BizResult delete(String sid,int id);
 
-    public List<ChallengeMsgDO> queryList(String sid,int challengeId);
+    public BizResult queryListForApply(String sid);
 
-    public boolean comment(String sid,int challengeId,String msg);
+    public BizResult queryList(String sid);
+
+    public BizResult comment(String sid,int challengeId,String msg);
+
+    public BizResult apply(String sid,int challengeId);
+
+    public BizResult cancelApply(String sid,int challengeId);
 
 }

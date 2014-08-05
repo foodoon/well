@@ -49,5 +49,8 @@ public class CommonResultCode {
 
     public static final String GOODS_NOT_EXIST = "GOODS_NOT_EXIST";
 
+    public static final String CHALLENGE_PUB_DUPLICATE = "CHALLENGE_PUB_DUPLICATE";
+    public static final String CHALLENGE_MUST_BE_TEAMER = "CHALLENGE_MUST_BE_TEAMER";
+
 
 }

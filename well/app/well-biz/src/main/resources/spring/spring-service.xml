@@ -7,9 +7,9 @@
     <bean id="userSerivce" class="com.foodoon.well.biz.service.impl.UserServiceImpl"></bean>
     <bean id="teamSerivce" class="com.foodoon.well.biz.service.impl.TeamServiceImpl"></bean>
     <bean id="courtSerivce" class="com.foodoon.well.biz.service.impl.CourtServiceImpl"></bean>
-    <!--
     <bean id="challengeSerivce" class="com.foodoon.well.biz.service.impl.ChallengeServiceImpl"></bean>
-    <bean id="courtSerivce" class="com.foodoon.well.biz.service.impl.CourtServiceImpl"></bean>
+    <!--
+
     <bean id="goodsSerivce" class="com.foodoon.well.biz.service.impl.GoodsServiceImpl"></bean>
 
     -->
