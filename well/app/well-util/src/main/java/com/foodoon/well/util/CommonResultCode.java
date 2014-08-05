@@ -36,10 +36,14 @@ public class CommonResultCode {
 
     public static final String TEAM_APPLY_NOT_EXIST = "TEAM_APPLY_NOT_EXIST";
     public static final String TEAM_APPLY_STATUS_ERROR = "TEAM_APPLY_STATUS_ERROR";
+    public static final String COURT_APPLY_TIME_ERROR = "COURT_APPLY_TIME_ERROR";
+    public static final String COURT_APPLY_TIME_ERROR_WITH7 = "COURT_APPLY_TIME_ERROR_WITH7";
+    public static final String COURT_APPLY_TIME_NOT_OPEN = "COURT_APPLY_TIME_NOT_OPEN";
 
     public static final String COURT_NOT_EXIST = "COURT_NOT_EXIST";
 
     public static final String COURT_APPLY_NOT_EXIST = "COURT_APPLY_NOT_EXIST";
+    public static final String COURT_APPLY_DULPLICATE = "COURT_APPLY_DULPLICATE";
 
     public static final String CHALLENGE_NOT_EXIST = "CHALLENGE_NOT_EXIST";
 

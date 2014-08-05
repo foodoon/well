@@ -69,7 +69,7 @@ public class OrderBizImpl implements OrderBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = orderDOMapper.insert(orderDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create Order error", e);
@@ -81,7 +81,7 @@ public class OrderBizImpl implements OrderBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = orderDOMapper.updateByPrimaryKeySelective(orderDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update Order error", e);

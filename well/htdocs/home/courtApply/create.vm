@@ -4,7 +4,7 @@
   <table class="table">
     #springBind("courtApplyForm.userId")
     <tr>
-        <td>用户ID</td>
+        <td>预定用户ID</td>
         <td>
             <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
             #foreach($error in $status.errorMessages) <b>$error</b>  #end
@@ -12,7 +12,7 @@
     </tr>
     #springBind("courtApplyForm.courtId")
     <tr>
-        <td>场地ID</td>
+        <td>预定场地ID</td>
         <td>
             <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
             #foreach($error in $status.errorMessages) <b>$error</b>  #end
@@ -20,7 +20,15 @@
     </tr>
     #springBind("courtApplyForm.bookingTime")
     <tr>
-        <td>预定日期</td>
+        <td>预定时间</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
+    #springBind("courtApplyForm.status")
+    <tr>
+        <td>状态</td>
         <td>
             <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
             #foreach($error in $status.errorMessages) <b>$error</b>  #end

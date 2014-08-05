@@ -3,7 +3,7 @@ package com.foodoon.well.web.form;
 import com.foodoon.well.dao.domain.CourtApplyDO;
 
 
-public class CourtApplyEditForm extends CourtApplyForm {
+public class CourtApplyEditForm extends CourtApplyForm{
 
     private Integer id;
 
@@ -15,19 +15,20 @@ public class CourtApplyEditForm extends CourtApplyForm {
         this.id = id;
     }
 
-    public CourtApplyDO toDO() {
-        CourtApplyDO courtApplyDO = super.toDO();
+    public CourtApplyDO toDO(){
+        CourtApplyDO courtApplyDO  =super.toDO();
         courtApplyDO.setId(this.id);
         return courtApplyDO;
     }
 
-    public void initForm(CourtApplyDO courtApplyDO) {
-        if (courtApplyDO == null) {
-            return;
-        }
-        this.setUserId(courtApplyDO.getUserId());
-        this.setCourtId(courtApplyDO.getCourtId());
-        this.setBookingTime(courtApplyDO.getBookingTime());
+    public void initForm(CourtApplyDO courtApplyDO){
+        if(courtApplyDO == null){
+        return ;
     }
+    this.setUserId(courtApplyDO.getUserId());
+    this.setCourtId(courtApplyDO.getCourtId());
+    this.setBookingTime(courtApplyDO.getBookingTime());
+    this.setStatus(courtApplyDO.getStatus());
+}
 
 }

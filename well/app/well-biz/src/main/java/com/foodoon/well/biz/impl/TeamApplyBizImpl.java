@@ -69,7 +69,7 @@ public class TeamApplyBizImpl implements TeamApplyBiz{
         teamApplyDO.setIsDeleted(0);
         try {
             int id = teamApplyDOMapper.insert(teamApplyDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create TeamApply error", e);
@@ -81,7 +81,7 @@ public class TeamApplyBizImpl implements TeamApplyBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = teamApplyDOMapper.updateByPrimaryKeySelective(teamApplyDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update TeamApply error", e);

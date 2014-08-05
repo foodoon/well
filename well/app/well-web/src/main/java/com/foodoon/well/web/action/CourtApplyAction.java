@@ -81,7 +81,7 @@ public class CourtApplyAction {
     }
 
     @RequestMapping(value = "courtApply/doCreate.htm", method = RequestMethod.POST)
-    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid CourtApplyForm courtApplyForm,
+    public String doCreate(HttpServletRequest request, ModelMap modelMap,@Valid  CourtApplyForm courtApplyForm,
         BindingResult result, Map<String,Object> model) {
         if (result.hasErrors()) {
             return "courtApply/create.vm";
@@ -112,12 +112,12 @@ public class CourtApplyAction {
 
     }
 
-    @RequestMapping(value = "courtApply/doDelete.htm")
+    @RequestMapping(value = "courtApply/doDelete.htm", method = RequestMethod.POST)
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = courtApplyBiz.delete(id);
         if (bizResult.success) {
-            return "redirect:/courtApply/list.htm";
+            return "courtApply/list.htm";
         } else {
             return "common/error.vm";
         }

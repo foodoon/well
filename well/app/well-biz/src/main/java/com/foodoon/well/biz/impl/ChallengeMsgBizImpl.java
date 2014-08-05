@@ -65,7 +65,7 @@ public class ChallengeMsgBizImpl implements ChallengeMsgBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = challengeMsgDOMapper.insert(challengeMsgDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create ChallengeMsg error", e);
@@ -77,7 +77,7 @@ public class ChallengeMsgBizImpl implements ChallengeMsgBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = challengeMsgDOMapper.updateByPrimaryKeySelective(challengeMsgDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update ChallengeMsg error", e);

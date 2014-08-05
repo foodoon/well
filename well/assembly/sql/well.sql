@@ -111,6 +111,7 @@ CREATE TABLE `well_court_apply` (
   `user_id` int(11) NOT NULL,
   `court_id` int(11) NOT NULL,
   `booking_time` datetime NOT NULL,
+  `status` int(11) DEFAULT '0',
   `is_deleted` int(11) DEFAULT '0',
   `gmt_modify` datetime DEFAULT NULL,
   `gmt_create` datetime DEFAULT NULL,

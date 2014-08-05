@@ -95,16 +95,16 @@ public class ReflectTool {
             return Long.parseLong(val.toString());
         } else if (Character.class.isAssignableFrom(paramTypeClass)) {
             if (val.toString().length() != 1) {
-                throw new RuntimeException("onvert data error type:[" + paramTypeClass + "],with value:[" + val + "]");
+                throw new RuntimeException("convert data error type:[" + paramTypeClass + "],with value:[" + val + "]");
             }
             return Character.valueOf(val.toString().charAt(0));
         } else if (char.class.isAssignableFrom(paramTypeClass)) {
             if (val.toString().length() != 1) {
-                throw new RuntimeException("onvert data error type:[" + paramTypeClass + "],with value:[" + val + "]");
+                throw new RuntimeException("convert data error type:[" + paramTypeClass + "],with value:[" + val + "]");
             }
             return Character.valueOf(val.toString().charAt(0)).charValue();
         } else if (Date.class.isAssignableFrom(paramTypeClass)) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd HHmmss");
             return simpleDateFormat.parse(val.toString());
         } else {
             throw new RuntimeException("cannot find convert class type:[" + paramTypeClass + "],with value:[" + val + "]");

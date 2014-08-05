@@ -65,7 +65,7 @@ public class TeamMemberBizImpl implements TeamMemberBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = teamMemberDOMapper.insert(teamMemberDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create TeamMember error", e);
@@ -77,7 +77,7 @@ public class TeamMemberBizImpl implements TeamMemberBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = teamMemberDOMapper.updateByPrimaryKeySelective(teamMemberDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update TeamMember error", e);

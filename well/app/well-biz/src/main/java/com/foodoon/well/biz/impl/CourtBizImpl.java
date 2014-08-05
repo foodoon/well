@@ -69,7 +69,7 @@ public class CourtBizImpl implements CourtBiz{
         courtDO.setIsDeleted(0);
         try {
             int id = courtDOMapper.insert(courtDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create Court error", e);
@@ -81,7 +81,7 @@ public class CourtBizImpl implements CourtBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = courtDOMapper.updateByPrimaryKeySelective(courtDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update Court error", e);

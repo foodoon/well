@@ -69,7 +69,7 @@ public class ChallengeAcceptBizImpl implements ChallengeAcceptBiz{
         challengeAcceptDO.setIsDeleted(0);
         try {
             int id = challengeAcceptDOMapper.insert(challengeAcceptDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create ChallengeAccept error", e);
@@ -81,7 +81,7 @@ public class ChallengeAcceptBizImpl implements ChallengeAcceptBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = challengeAcceptDOMapper.updateByPrimaryKeySelective(challengeAcceptDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update ChallengeAccept error", e);

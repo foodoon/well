@@ -1,30 +1,29 @@
 package com.foodoon.well.biz.service;
 
+import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.dao.domain.CourtDO;
-
-import java.util.List;
 
 /**
  * Created by foodoon on 2014/7/31.
  */
 public interface CourtService {
 
-    public boolean create(String sid,CourtDO courtDO);
+    public BizResult create(String sid,CourtDO courtDO);
 
-    public boolean update(String sid,CourtDO courtDO);
+    public BizResult update(String sid,CourtDO courtDO);
 
-    public boolean delete(String sid,int id);
+    public BizResult delete(String sid,int id);
 
-    public boolean apply(String sid,int courtId,String applyTime);
+    public BizResult apply(String sid,int courtId,String applyTime);
 
-    public boolean cancelApply(String sid,int applyId);
+    public BizResult cancelApply(String sid,int applyId);
 
-    public boolean passApply(String sid,int applyId);
+    public BizResult passApply(String sid,int applyId);
 
-    public boolean rejectApply(String sid,int applyId);
+    public BizResult rejectApply(String sid,int applyId);
 
-    public List<CourtDO> queryReserveList(String sid);
+    public BizResult queryBookingList(String sid,int pageNo,int pageSize);
 
-    public List<CourtDO> queryReserveListForReview(String sid);
+    public BizResult queryBookingListForReview(String sid,int pageNo,int pageSize);
 
 }

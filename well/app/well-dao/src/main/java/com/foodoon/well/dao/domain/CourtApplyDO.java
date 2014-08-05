@@ -7,14 +7,14 @@ import java.util.Date;
 public class CourtApplyDO {
     private Integer id;
 
-    @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
+    @GenField(cn="预定用户ID",order=1,inSearchForm = false,canNull = false)
     private Integer userId;
-
-    @GenField(cn="场地ID",order=1,inSearchForm = false,canNull = false)
+    @GenField(cn="预定场地ID",order=1,inSearchForm = false,canNull = false)
     private Integer courtId;
-
-    @GenField(cn="预定日期",order=1,inSearchForm = false,canNull = false)
+    @GenField(cn="预定时间",order=1,inSearchForm = false,canNull = false)
     private Date bookingTime;
+    @GenField(cn="状态",order=1,inSearchForm = false,canNull = false)
+    private Integer status;
 
     private Integer isDeleted;
 
@@ -52,6 +52,14 @@ public class CourtApplyDO {
 
     public void setBookingTime(Date bookingTime) {
         this.bookingTime = bookingTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getIsDeleted() {

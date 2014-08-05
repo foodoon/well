@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by foodoon on 2014/8/5.
@@ -51,4 +52,25 @@ public class DateHelper {
         return calendar.getTime();
 
     }
+
+    public static boolean isWorkday(Date date)  {
+        Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int n = calendar.get(Calendar.DAY_OF_WEEK);
+        System.out.println(n);
+        return n>1 && n<7;
+
+    }
+
+    public static boolean isWeekend(Date date)  {
+        Locale.setDefault(Locale.SIMPLIFIED_CHINESE);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int n = calendar.get(Calendar.DAY_OF_WEEK);
+        System.out.println(n);
+        return n == 1 || n ==7;
+
+    }
+
 }

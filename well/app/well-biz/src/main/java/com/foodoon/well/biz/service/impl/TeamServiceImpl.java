@@ -446,6 +446,7 @@ public class TeamServiceImpl implements TeamService{
         bizResult.data.put("teamDO",teamDOs.get(0));
         bizResult.data.put("memberList",teamMemberVOList);
         bizResult.data.put("query",baseQuery);
+        bizResult.success = true;
         return bizResult;
     }
     @AppRequestMapping(apiName = "team.queryTeamList", apiVersion = "1.0")

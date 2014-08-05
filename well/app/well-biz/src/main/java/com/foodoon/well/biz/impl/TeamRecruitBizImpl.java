@@ -69,7 +69,7 @@ public class TeamRecruitBizImpl implements TeamRecruitBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = teamRecruitDOMapper.insert(teamRecruitDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create TeamRecruit error", e);
@@ -81,7 +81,7 @@ public class TeamRecruitBizImpl implements TeamRecruitBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = teamRecruitDOMapper.updateByPrimaryKeySelective(teamRecruitDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update TeamRecruit error", e);

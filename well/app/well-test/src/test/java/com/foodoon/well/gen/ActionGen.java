@@ -17,10 +17,10 @@ public class ActionGen {
         demoGen.setJdbUrl(jdbUrl);
         String appName = "well";
         String parentPackageName = "com.foodoon";
-        String tableName = "well_team_member";
-      // demoGen.genDaoXML(tableName,appName,parentPackageName);
-      // demoGen.genBiz(tableName,appName,parentPackageName);
-     //   demoGen.genAction(tableName,appName,parentPackageName);
+        String tableName = "well_court_apply";
+//       demoGen.genDaoXML(tableName,appName,parentPackageName);
+//       demoGen.genBiz(tableName,appName,parentPackageName);
+//       demoGen.genAction(tableName,appName,parentPackageName);
 
 
 

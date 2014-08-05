@@ -69,7 +69,7 @@ public class GoodsBizImpl implements GoodsBiz{
         goodsDO.setIsDeleted(0);
         try {
             int id = goodsDOMapper.insert(goodsDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create Goods error", e);
@@ -81,7 +81,7 @@ public class GoodsBizImpl implements GoodsBiz{
         BizResult bizResult = new BizResult();
         try {
             int id = goodsDOMapper.updateByPrimaryKeySelective(goodsDO);
-            bizResult.data.put("id", id);
+            bizResult.data.put("count", id);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update Goods error", e);
