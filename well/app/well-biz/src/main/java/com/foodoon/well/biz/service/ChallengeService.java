@@ -19,9 +19,9 @@ public interface ChallengeService {
 
     public BizResult delete(String sid,int id);
 
-    public BizResult queryListForApply(String sid);
+    public BizResult queryListForApply(String sid,int pageNo,int PageSize);
 
-    public BizResult queryList(String sid);
+    public BizResult queryList(String sid,int pageNo,int PageSize);
 
     public BizResult comment(String sid,int challengeId,String msg);
 

@@ -27,6 +27,7 @@ CREATE TABLE `well_challenge` (
   `challenge_desc` varchar(1024) DEFAULT NULL,
   `challenge_result` varchar(255) DEFAULT NULL,
   `goal_count` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `gmt_modify` datetime NOT NULL,
   `gmt_create` datetime NOT NULL,

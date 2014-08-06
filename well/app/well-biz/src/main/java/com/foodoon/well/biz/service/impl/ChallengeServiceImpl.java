@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.service.impl;
 
+import com.foodoon.tools.web.page.BaseQuery;
 import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.biz.SessionBiz;
 import com.foodoon.well.biz.service.ChallengeService;
@@ -10,7 +11,6 @@ import com.foodoon.well.dao.domain.*;
 import com.foodoon.well.util.BizResultHelper;
 import com.foodoon.well.util.CommonResultCode;
 import com.foodoon.well.util.DateHelper;
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +71,7 @@ public class ChallengeServiceImpl implements ChallengeService {
         challengeDO.setIsDeleted(0);
         challengeDO.setTeamId(teamDOs.get(0).getId());
         try {
-            int insert = challengeDOMapper.insert(challengeDO);
+            challengeDOMapper.insert(challengeDO);
             return BizResultHelper.newSuccess();
         } catch (Exception e) {
             log.error("create challenge error", e);
@@ -161,11 +161,27 @@ public class ChallengeServiceImpl implements ChallengeService {
         return BizResultHelper.newCommonError();
     }
 
-    public BizResult queryListForApply(String sid) {
+    public BizResult queryListForApply(String sid,int pageNo,int pageSize) {
+        if (!StringUtils.hasText(sid)) {
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        BizResult bizResult = sessionBiz.checkSession(sid);
+        if (!bizResult.success) {
+            return bizResult;
+        }
+        SessionDO sessionDO = (SessionDO) bizResult.data.get("sessionDO");
+        UserDO userDO = userDOMapper.selectByPrimaryKey(sessionDO.getUserId());
+        if (userDO == null) {
+            return BizResultHelper.newResultCode(CommonResultCode.USER_NOT_EXIST);
+        }
+        BaseQuery baseQuery = new BaseQuery();
+        baseQuery.setPageNo(pageNo);
+        baseQuery.setPageSize(pageSize);
+        //查找
         return null;
     }
 
-    public BizResult queryList(String sid) {
+    public BizResult queryList(String sid,int pageNo,int pageSize) {
         return null;
     }
 
