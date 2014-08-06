@@ -25,6 +25,9 @@ public class ChallengeDO {
     @GenField(cn="比赛进球数",order=1,inSearchForm = false,canNull = false)
     private Integer goalCount;
 
+    @GenField(cn="是否接受应战",order=1,inSearchForm = false,canNull = false)
+    private Integer status;
+
     private Integer isDeleted;
 
     private Date gmtModify;
@@ -85,6 +88,14 @@ public class ChallengeDO {
 
     public void setGoalCount(Integer goalCount) {
         this.goalCount = goalCount;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getIsDeleted() {

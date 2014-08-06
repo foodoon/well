@@ -42,4 +42,11 @@ $!challenge详情
               </td>
           </tr>
 
+                <tr>
+              <td>是否接受应战</td>
+              <td>
+                  $!challengeDO.status
+              </td>
+          </tr>
+
         </table>

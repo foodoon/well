@@ -112,7 +112,7 @@ public class ChallengeAction {
 
     }
 
-    @RequestMapping(value = "challenge/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "challenge/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = challengeBiz.delete(id);

@@ -64,8 +64,8 @@ public class ChallengeBizImpl implements ChallengeBiz{
     public BizResult create(ChallengeDO challengeDO) {
         BizResult bizResult = new BizResult();
         try {
-            int id = challengeDOMapper.insert(challengeDO);
-            bizResult.data.put("count", id);
+            int count = challengeDOMapper.insert(challengeDO);
+            bizResult.data.put("count", count);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create Challenge error", e);
@@ -76,8 +76,8 @@ public class ChallengeBizImpl implements ChallengeBiz{
     public BizResult update(ChallengeDO challengeDO) {
         BizResult bizResult = new BizResult();
         try {
-            int id = challengeDOMapper.updateByPrimaryKeySelective(challengeDO);
-            bizResult.data.put("count", id);
+            int count = challengeDOMapper.updateByPrimaryKeySelective(challengeDO);
+            bizResult.data.put("count", count);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update Challenge error", e);

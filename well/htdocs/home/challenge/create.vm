@@ -50,6 +50,14 @@
             #foreach($error in $status.errorMessages) <b>$error</b>  #end
         </td>
     </tr>
+    #springBind("challengeForm.status")
+    <tr>
+        <td>是否接受应战</td>
+        <td>
+            <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+            #foreach($error in $status.errorMessages) <b>$error</b>  #end
+        </td>
+    </tr>
 
 	  <tr>
 	  <td colspan="2">

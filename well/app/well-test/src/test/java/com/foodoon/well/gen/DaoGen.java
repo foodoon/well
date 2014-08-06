@@ -5,7 +5,7 @@ package com.foodoon.well.gen;
  */
 public class DaoGen {
 
-    private static String jdbcPath = "e:\\repo\\mysql\\mysql-connector-java\\5.1.9\\mysql-connector-java-5.1.9.jar";
+    private static String jdbcPath = "C:\\Users\\well\\.m2\\repository\\mysql\\mysql-connector-java\\5.1.9\\mysql-connector-java-5.1.9.jar";
 
     private static String jdbUrl = "jdbc:mysql://127.0.0.1:3306/well?useUnicode=true&characterEncoding=utf8";
 
@@ -15,10 +15,10 @@ public class DaoGen {
         demoGen.setJdbcUsername("root");
         demoGen.setJdbcPath(jdbcPath);
         demoGen.setJdbUrl(jdbUrl);
-
+        demoGen.setDriverClass("com.mysql.jdbc.Driver");
         String appName = "well";
         String parentPackageName = "com.foodoon";
-        String tableName = "well_court_apply";
+        String tableName = "well_challenge";
         //demoGen.genDAO(tableName,appName,parentPackageName);
 
 

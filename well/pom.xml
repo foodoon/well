@@ -11,14 +11,14 @@
 
 	<profiles>
 		<profile>
-			<id>dev</id>
+			<id>v</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<repositories>
 
 				<repository>
-					<id>dev</id>
+					<id>v</id>
 					<url>http://nongmao.info/nexus/content/repositories/dev</url>
 					<snapshots>
 					</snapshots>

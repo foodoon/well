@@ -9,6 +9,7 @@
               <th>约战条件</th>
               <th>约战结果</th>
               <th>比赛进球数</th>
+              <th>是否接受应战</th>
           <th>操作</th>
  </tr>
     </thead>
@@ -20,6 +21,7 @@
                <td> $!f.challengeDesc</td>
                <td> $!f.challengeResult</td>
                <td> $!f.goalCount</td>
+               <td> $!f.status</td>
           <td><a href="$!homeServer.getURI("challenge/edit.htm").addQueryData('id',"$!f.id")" >编辑</a></td>
     <td><a href="$!homeServer.getURI("challenge/detail.htm").addQueryData('id',"$!f.id")" >查看详情</a></td>
       <td><a href="$!homeServer.getURI("challenge/doDelete.htm").addQueryData('id',"$!f.id")" onclick="return confirm('确定删除吗?')">删除</a></td>

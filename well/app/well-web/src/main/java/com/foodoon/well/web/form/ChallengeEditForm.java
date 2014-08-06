@@ -31,6 +31,7 @@ public class ChallengeEditForm extends ChallengeForm{
     this.setChallengeDesc(challengeDO.getChallengeDesc());
     this.setChallengeResult(challengeDO.getChallengeResult());
     this.setGoalCount(challengeDO.getGoalCount());
+    this.setStatus(challengeDO.getStatus());
 }
 
 }
