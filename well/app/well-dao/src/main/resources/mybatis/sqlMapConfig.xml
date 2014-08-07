@@ -15,5 +15,6 @@
   <mapper resource="mybatis/UserDOMapper.xml"/>
   <mapper resource="mybatis/SessionDOMapper.xml"/>
   <mapper resource="mybatis/TeamMemberDOMapper.xml"/>
+  <mapper resource="mybatis/ChallengeApplyDOMapper.xml"/>
  </mappers>
 </configuration>
