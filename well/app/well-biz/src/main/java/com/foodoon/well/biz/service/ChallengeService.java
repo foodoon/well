@@ -2,10 +2,6 @@ package com.foodoon.well.biz.service;
 
 import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.dao.domain.ChallengeDO;
-import com.foodoon.well.dao.domain.ChallengeMsgDO;
-
-
-import java.util.List;
 
 /**
  * Created by foodoon on 2014/7/31.

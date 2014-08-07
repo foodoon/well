@@ -4,7 +4,7 @@ import com.foodoon.gooda.gen.GenField;
 
 import java.util.Date;
 
-public class ChallengeMsgDO {
+public class ChallengeCommentDO {
     private Integer id;
 
     @GenField(cn="约战ID",order=1,inSearchForm = false,canNull = false)

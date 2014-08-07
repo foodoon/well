@@ -4,14 +4,6 @@
   <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
  </bean>
- <bean id="challengeAcceptDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-  <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeAcceptDOMapper"/>
-  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
- </bean>
- <bean id="challengeMsgDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-  <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeMsgDOMapper"/>
-  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
- </bean>
  <bean id="courtDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
   <property name="mapperInterface" value="com.foodoon.well.dao.CourtDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
@@ -54,6 +46,10 @@
  </bean>
  <bean id="challengeApplyDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
   <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeApplyDOMapper"/>
+  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+ </bean>
+ <bean id="challengeCommentDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+  <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeCommentDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
  </bean>
 </beans>

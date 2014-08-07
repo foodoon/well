@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.foodoon.well.dao.ChallengeAcceptDOMapper" >
-  <resultMap id="BaseResultMap" type="com.foodoon.well.dao.domain.ChallengeAcceptDO" >
+<mapper namespace="com.foodoon.well.dao.ChallengeCommentDOMapper" >
+  <resultMap id="BaseResultMap" type="com.foodoon.well.dao.domain.ChallengeCommentDO" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="challenge_id" property="challengeId" jdbcType="INTEGER" />
-    <result column="team_id" property="teamId" jdbcType="INTEGER" />
-    <result column="goal_count" property="goalCount" jdbcType="INTEGER" />
-    <result column="challenge_result" property="challengeResult" jdbcType="VARCHAR" />
-    <result column="accept" property="accept" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="msg" property="msg" jdbcType="VARCHAR" />
     <result column="is_deleted" property="isDeleted" jdbcType="INTEGER" />
     <result column="gmt_modify" property="gmtModify" jdbcType="TIMESTAMP" />
     <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
@@ -42,16 +40,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, challenge_id, team_id, goal_count, challenge_result, accept, is_deleted, gmt_modify, 
-    gmt_create
+    id, challenge_id, user_id, msg, is_deleted, gmt_modify, gmt_create
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDOCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDOCriteria" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from well_challenge_accept
+    from well_challenge_comment
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -65,43 +62,38 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from well_challenge_accept
+    from well_challenge_comment
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from well_challenge_accept
+    delete from well_challenge_comment
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDO" >
-    insert into well_challenge_accept (id, challenge_id, team_id, 
-      goal_count, challenge_result, accept, 
+  <insert id="insert" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDO" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into well_challenge_comment (challenge_id, user_id, msg, 
       is_deleted, gmt_modify, gmt_create
       )
-    values (#{id,jdbcType=INTEGER}, #{challengeId,jdbcType=INTEGER}, #{teamId,jdbcType=INTEGER}, 
-      #{goalCount,jdbcType=INTEGER}, #{challengeResult,jdbcType=VARCHAR}, #{accept,jdbcType=INTEGER}, 
+    values (#{challengeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{msg,jdbcType=VARCHAR}, 
       #{isDeleted,jdbcType=INTEGER}, #{gmtModify,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDO" >
-    insert into well_challenge_accept
+  <insert id="insertSelective" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDO" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into well_challenge_comment
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="challengeId != null" >
         challenge_id,
       </if>
-      <if test="teamId != null" >
-        team_id,
+      <if test="userId != null" >
+        user_id,
       </if>
-      <if test="goalCount != null" >
-        goal_count,
-      </if>
-      <if test="challengeResult != null" >
-        challenge_result,
-      </if>
-      <if test="accept != null" >
-        accept,
+      <if test="msg != null" >
+        msg,
       </if>
       <if test="isDeleted != null" >
         is_deleted,
@@ -114,23 +106,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="challengeId != null" >
         #{challengeId,jdbcType=INTEGER},
       </if>
-      <if test="teamId != null" >
-        #{teamId,jdbcType=INTEGER},
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
-      <if test="goalCount != null" >
-        #{goalCount,jdbcType=INTEGER},
-      </if>
-      <if test="challengeResult != null" >
-        #{challengeResult,jdbcType=VARCHAR},
-      </if>
-      <if test="accept != null" >
-        #{accept,jdbcType=INTEGER},
+      <if test="msg != null" >
+        #{msg,jdbcType=VARCHAR},
       </if>
       <if test="isDeleted != null" >
         #{isDeleted,jdbcType=INTEGER},
@@ -143,29 +126,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDOCriteria" resultType="java.lang.Integer" >
-    select count(*) from well_challenge_accept
+  <select id="countByExample" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDOCriteria" resultType="java.lang.Integer" >
+    select count(*) from well_challenge_comment
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByPrimaryKeySelective" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDO" >
-    update well_challenge_accept
+  <update id="updateByPrimaryKeySelective" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDO" >
+    update well_challenge_comment
     <set >
       <if test="challengeId != null" >
         challenge_id = #{challengeId,jdbcType=INTEGER},
       </if>
-      <if test="teamId != null" >
-        team_id = #{teamId,jdbcType=INTEGER},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="goalCount != null" >
-        goal_count = #{goalCount,jdbcType=INTEGER},
-      </if>
-      <if test="challengeResult != null" >
-        challenge_result = #{challengeResult,jdbcType=VARCHAR},
-      </if>
-      <if test="accept != null" >
-        accept = #{accept,jdbcType=INTEGER},
+      <if test="msg != null" >
+        msg = #{msg,jdbcType=VARCHAR},
       </if>
       <if test="isDeleted != null" >
         is_deleted = #{isDeleted,jdbcType=INTEGER},
@@ -179,13 +156,11 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.foodoon.well.dao.domain.ChallengeAcceptDO" >
-    update well_challenge_accept
+  <update id="updateByPrimaryKey" parameterType="com.foodoon.well.dao.domain.ChallengeCommentDO" >
+    update well_challenge_comment
     set challenge_id = #{challengeId,jdbcType=INTEGER},
-      team_id = #{teamId,jdbcType=INTEGER},
-      goal_count = #{goalCount,jdbcType=INTEGER},
-      challenge_result = #{challengeResult,jdbcType=VARCHAR},
-      accept = #{accept,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      msg = #{msg,jdbcType=VARCHAR},
       is_deleted = #{isDeleted,jdbcType=INTEGER},
       gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}

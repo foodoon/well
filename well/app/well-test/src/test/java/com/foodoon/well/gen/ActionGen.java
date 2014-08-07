@@ -17,7 +17,7 @@ public class ActionGen {
         demoGen.setJdbUrl(jdbUrl);
         String appName = "well";
         String parentPackageName = "com.foodoon";
-        String tableName = "well_challenge_apply";
+        String tableName = "well_challenge_comment";
        demoGen.genDaoXML(tableName,appName,parentPackageName);
        demoGen.genBiz(tableName,appName,parentPackageName);
        demoGen.genAction(tableName,appName,parentPackageName);

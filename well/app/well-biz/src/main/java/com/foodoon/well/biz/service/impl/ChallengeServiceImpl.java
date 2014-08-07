@@ -47,6 +47,7 @@ public class ChallengeServiceImpl implements ChallengeService {
 
 
 
+
     public BizResult create(String sid, ChallengeDO challengeDO) {
         if (!StringUtils.hasText(sid) || challengeDO == null || challengeDO.getCourtId() < 1
                 || !StringUtils.hasText(challengeDO.getChallengeDesc())
@@ -350,6 +351,14 @@ public class ChallengeServiceImpl implements ChallengeService {
 
 
     public BizResult comment(String sid, int challengeId, String msg) {
+        if (!StringUtils.hasText(sid)||!StringUtils.hasText(msg)|| challengeId < 1){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        BizResult bizResult = sessionBiz.checkSession(sid);
+        if (!bizResult.success) {
+            return bizResult;
+        }
+
         return null;
     }
 

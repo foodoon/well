@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ChallengeMsgDOCriteria {
+public class ChallengeCommentDOCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class ChallengeMsgDOCriteria {
 
     protected int pageSize = -1;
 
-    public ChallengeMsgDOCriteria() {
+    public ChallengeCommentDOCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

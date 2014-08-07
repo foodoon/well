@@ -18,7 +18,7 @@ public class DaoGen {
         demoGen.setDriverClass("com.mysql.jdbc.Driver");
         String appName = "well";
         String parentPackageName = "com.foodoon";
-        String tableName = "well_challenge_apply";
+        String tableName = "well_challenge_comment";
        // demoGen.genDAO(tableName,appName,parentPackageName);
 
 
