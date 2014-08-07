@@ -51,6 +51,7 @@ public class CommonResultCode {
 
     public static final String CHALLENGE_PUB_DUPLICATE = "CHALLENGE_PUB_DUPLICATE";
     public static final String CHALLENGE_MUST_BE_TEAMER = "CHALLENGE_MUST_BE_TEAMER";
+    public static final String CHALLENGE_MUST_HAVE_TEAM = "CHALLENGE_MUST_HAVE_TEAM";
 
 
 }

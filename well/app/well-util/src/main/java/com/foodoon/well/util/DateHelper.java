@@ -94,4 +94,13 @@ public class DateHelper {
 
     }
 
+
+    public static String formatYMDHMSCN(Date time)  {
+        if(time == null){
+            return null;
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+        return simpleDateFormat.format(time);
+    }
+
 }

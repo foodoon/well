@@ -52,4 +52,8 @@
   <property name="mapperInterface" value="com.foodoon.well.dao.TeamMemberDOMapper"/>
   <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
  </bean>
+ <bean id="challengeApplyDOMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+  <property name="mapperInterface" value="com.foodoon.well.dao.ChallengeApplyDOMapper"/>
+  <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+ </bean>
 </beans>

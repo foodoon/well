@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : local
+Source Server         : well
 Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : well
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-08-02 04:32:53
+Date: 2014-08-07 08:52:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,10 +39,10 @@ CREATE TABLE `well_challenge` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `well_challenge_accept`
+-- Table structure for `well_challenge_apply`
 -- ----------------------------
-DROP TABLE IF EXISTS `well_challenge_accept`;
-CREATE TABLE `well_challenge_accept` (
+DROP TABLE IF EXISTS `well_challenge_apply`;
+CREATE TABLE `well_challenge_apply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `challenge_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `well_challenge_accept` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of well_challenge_accept
+-- Records of well_challenge_apply
 -- ----------------------------
 
 -- ----------------------------
@@ -171,7 +171,7 @@ CREATE TABLE `well_session` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `s_id` varchar(64) NOT NULL,
-  `store_data` text DEFAULT NULL,
+  `store_data` text,
   `expire_time` datetime NOT NULL,
   `gmt_create` datetime DEFAULT NULL,
   `gmt_modify` datetime DEFAULT NULL,
@@ -222,6 +222,23 @@ CREATE TABLE `well_team_apply` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `well_team_member`
+-- ----------------------------
+DROP TABLE IF EXISTS `well_team_member`;
+CREATE TABLE `well_team_member` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `team_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `gmt_create` datetime NOT NULL,
+  `gmt_modify` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of well_team_member
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `well_team_recruit`
 -- ----------------------------
 DROP TABLE IF EXISTS `well_team_recruit`;
@@ -265,16 +282,4 @@ CREATE TABLE `well_user` (
 -- ----------------------------
 -- Records of well_user
 -- ----------------------------
-
 INSERT INTO `well_user` VALUES ('13', 'zhangsan', null, null, null, 'AEF42A4125884C16D6AB400F7F6954CA', null, null, null, null, null, null, '2014-08-01 17:34:18', '2014-08-01 17:34:18');
-
-
-DROP TABLE IF EXISTS `well_team_member`;
-CREATE TABLE `well_team_member` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `team_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `gmt_create` datetime NOT NULL,
-  `gmt_modify` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
