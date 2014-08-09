@@ -1,6 +1,5 @@
 package com.foodoon.well.biz.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,13 +62,10 @@ public class OrderBizImpl implements OrderBiz{
     }
 
     public BizResult create(OrderDO orderDO) {
-        orderDO.setGmtModify(new Date());
-        orderDO.setGmtCreate(new Date());
-        orderDO.setIsDeleted(0);
         BizResult bizResult = new BizResult();
         try {
-            int id = orderDOMapper.insert(orderDO);
-            bizResult.data.put("count", id);
+            int count = orderDOMapper.insert(orderDO);
+            bizResult.data.put("count", count);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("create Order error", e);
@@ -80,8 +76,8 @@ public class OrderBizImpl implements OrderBiz{
     public BizResult update(OrderDO orderDO) {
         BizResult bizResult = new BizResult();
         try {
-            int id = orderDOMapper.updateByPrimaryKeySelective(orderDO);
-            bizResult.data.put("count", id);
+            int count = orderDOMapper.updateByPrimaryKeySelective(orderDO);
+            bizResult.data.put("count", count);
             bizResult.success = true;
         } catch (Exception e) {
             logger.error("update Order error", e);

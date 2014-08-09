@@ -112,7 +112,7 @@ public class OrderAction {
 
     }
 
-    @RequestMapping(value = "order/doDelete.htm", method = RequestMethod.POST)
+    @RequestMapping(value = "order/doDelete.htm")
     public String doDelete(HttpServletRequest request, ModelMap modelMap) {
         int id = RequestUtil.getInt(request, "id");
         BizResult bizResult = orderBiz.delete(id);

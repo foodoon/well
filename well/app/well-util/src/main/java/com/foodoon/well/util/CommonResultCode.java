@@ -46,12 +46,18 @@ public class CommonResultCode {
     public static final String COURT_APPLY_DULPLICATE = "COURT_APPLY_DULPLICATE";
 
     public static final String CHALLENGE_NOT_EXIST = "CHALLENGE_NOT_EXIST";
+    public static final String CHALLENGE_NOT_END = "CHALLENGE_NOT_END";
 
     public static final String GOODS_NOT_EXIST = "GOODS_NOT_EXIST";
 
     public static final String CHALLENGE_PUB_DUPLICATE = "CHALLENGE_PUB_DUPLICATE";
     public static final String CHALLENGE_MUST_BE_TEAMER = "CHALLENGE_MUST_BE_TEAMER";
     public static final String CHALLENGE_MUST_HAVE_TEAM = "CHALLENGE_MUST_HAVE_TEAM";
+
+    public static final String CHALLENGE_HAVE_MEET = "CHALLENGE_HAVE_MEET";
+    public static final String CHALLENGE_TIME_EXPIRE = "CHALLENGE_TIME_EXPIRE";
+
+    public static final String CHALLENGE_APPLY_NOT_EXIST = "CHALLENGE_APPLY_NOT_EXIST";
 
 
 }

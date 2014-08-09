@@ -8,13 +8,6 @@ $!order详情
           </tr>
 
                 <tr>
-              <td>用户ID</td>
-              <td>
-                  $!orderDO.userId
-              </td>
-          </tr>
-
-                <tr>
               <td>留言</td>
               <td>
                   $!orderDO.leaveMsg
@@ -25,6 +18,20 @@ $!order详情
               <td>配送时间</td>
               <td>
                   $!orderDO.deliveryTime
+              </td>
+          </tr>
+
+                <tr>
+              <td>买家ID</td>
+              <td>
+                  $!orderDO.buyerId
+              </td>
+          </tr>
+
+                <tr>
+              <td>卖家ID</td>
+              <td>
+                  $!orderDO.sellerId
               </td>
           </tr>
 

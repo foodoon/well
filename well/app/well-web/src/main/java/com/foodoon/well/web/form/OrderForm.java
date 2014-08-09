@@ -2,66 +2,69 @@ package com.foodoon.well.web.form;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.foodoon.well.dao.domain.OrderDO;
-
+import javax.validation.constraints.NotNull;
 
 public class OrderForm {
-    @NotNull
-    private Integer goodsId;
+                    @NotNull     private Integer goodsId;
 
-    @NotNull
-    private Integer userId;
+                    @NotEmpty(message = "{不能为空}")
+            private String leaveMsg;
 
-    @NotEmpty(message = "{不能为空}")
-    private String leaveMsg;
+                    @NotNull     private Date deliveryTime;
 
-    @NotNull
-    private Date deliveryTime;
+                    @NotNull     private Integer buyerId;
+
+                    @NotNull     private Integer sellerId;
 
     public Integer getGoodsId() {
-        return goodsId;
+       return goodsId;
     }
 
     public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+       this.goodsId = goodsId;
     }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     public String getLeaveMsg() {
-        return leaveMsg;
+       return leaveMsg;
     }
 
     public void setLeaveMsg(String leaveMsg) {
-        this.leaveMsg = leaveMsg;
+       this.leaveMsg = leaveMsg;
     }
-
     public Date getDeliveryTime() {
-        return deliveryTime;
+       return deliveryTime;
     }
 
     public void setDeliveryTime(Date deliveryTime) {
-        this.deliveryTime = deliveryTime;
+       this.deliveryTime = deliveryTime;
+    }
+    public Integer getBuyerId() {
+       return buyerId;
     }
 
-    public OrderDO toDO() {
-        OrderDO orderDO = new OrderDO();
-        orderDO.setGoodsId(this.goodsId);
-        orderDO.setUserId(this.userId);
-        orderDO.setLeaveMsg(this.leaveMsg);
-        orderDO.setDeliveryTime(this.deliveryTime);
-        return orderDO;
+    public void setBuyerId(Integer buyerId) {
+       this.buyerId = buyerId;
     }
+    public Integer getSellerId() {
+       return sellerId;
+    }
+
+    public void setSellerId(Integer sellerId) {
+       this.sellerId = sellerId;
+    }
+
+    public OrderDO toDO(){
+       OrderDO orderDO  = new OrderDO();
+            orderDO.setGoodsId(this.goodsId);
+                orderDO.setLeaveMsg(this.leaveMsg);
+                orderDO.setDeliveryTime(this.deliveryTime);
+                orderDO.setBuyerId(this.buyerId);
+                orderDO.setSellerId(this.sellerId);
+           return orderDO;
+}
 
 }

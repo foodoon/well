@@ -1,5 +1,6 @@
 package com.foodoon.well.biz.service;
 
+import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.dao.domain.GoodsDO;
 
 import java.util.List;
@@ -9,19 +10,19 @@ import java.util.List;
  */
 public interface GoodsService {
 
-    public boolean create(String sid,GoodsDO goodsDO);
+    public BizResult create(String sid,GoodsDO goodsDO);
 
-    public boolean update(String sid,GoodsDO goodsDO);
+    public BizResult update(String sid,GoodsDO goodsDO);
 
-    public boolean delete(String sid,int id);
+    public BizResult delete(String sid,int id);
 
-    public List<GoodsDO> queryListByCourtId(int courtId);
+    public BizResult queryListByCourtId(int courtId,int pageNo,int pageSize);
 
-    public List<GoodsDO> queryListByBuyer(String sid);
+    public BizResult queryOrderListByBuyer(String sid,int pageNo,int pageSize);
 
-    public List<GoodsDO> queryListBySeller(String sid);
+    public BizResult queryOrderListBySeller(String sid,int pageNo,int pageSize);
 
-    public boolean buy(String sid,int id);
+    public BizResult buy(String sid,int id);
 
-    public boolean cancelBuy(String sid,int tradeId);
+    public BizResult cancelBuy(String sid,int tradeId);
 }

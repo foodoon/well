@@ -4,18 +4,20 @@
     <thead>
  <tr>
               <th>商品ID</th>
-              <th>用户ID</th>
               <th>留言</th>
               <th>配送时间</th>
+              <th>买家ID</th>
+              <th>卖家ID</th>
           <th>操作</th>
  </tr>
     </thead>
 #foreach($f in $orderDOList)
   <tr>
                <td> $!f.goodsId</td>
-               <td> $!f.userId</td>
                <td> $!f.leaveMsg</td>
                <td> $!f.deliveryTime</td>
+               <td> $!f.buyerId</td>
+               <td> $!f.sellerId</td>
           <td><a href="$!homeServer.getURI("order/edit.htm").addQueryData('id',"$!f.id")" >编辑</a></td>
     <td><a href="$!homeServer.getURI("order/detail.htm").addQueryData('id',"$!f.id")" >查看详情</a></td>
       <td><a href="$!homeServer.getURI("order/doDelete.htm").addQueryData('id',"$!f.id")" onclick="return confirm('确定删除吗?')">删除</a></td>

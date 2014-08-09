@@ -10,14 +10,17 @@ public class OrderDO {
     @GenField(cn="商品ID",order=1,inSearchForm = false,canNull = false)
     private Integer goodsId;
 
-    @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
-    private Integer userId;
-
     @GenField(cn="留言",order=1,inSearchForm = false,canNull = false)
     private String leaveMsg;
 
     @GenField(cn="配送时间",order=1,inSearchForm = false,canNull = false)
     private Date deliveryTime;
+
+    @GenField(cn="买家ID",order=1,inSearchForm = false,canNull = false)
+    private Integer buyerId;
+    @GenField(cn="卖家ID",order=1,inSearchForm = false,canNull = false)
+    private Integer sellerId;
+
 
     private Integer isDeleted;
 
@@ -41,12 +44,20 @@ public class OrderDO {
         this.goodsId = goodsId;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getBuyerId() {
+        return buyerId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setBuyerId(Integer buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public Integer getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(Integer sellerId) {
+        this.sellerId = sellerId;
     }
 
     public Date getDeliveryTime() {

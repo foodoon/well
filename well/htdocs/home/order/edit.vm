@@ -12,14 +12,6 @@
                   #foreach($error in $status.errorMessages) <b>$error</b>  #end
               </td>
           </tr>
-                #springBind("orderEditForm.userId")
-          <tr>
-              <td>用户ID</td>
-              <td>
-                  <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
-                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
-              </td>
-          </tr>
                 #springBind("orderEditForm.leaveMsg")
           <tr>
               <td>留言</td>
@@ -31,6 +23,22 @@
                 #springBind("orderEditForm.deliveryTime")
           <tr>
               <td>配送时间</td>
+              <td>
+                  <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("orderEditForm.buyerId")
+          <tr>
+              <td>买家ID</td>
+              <td>
+                  <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
+                  #foreach($error in $status.errorMessages) <b>$error</b>  #end
+              </td>
+          </tr>
+                #springBind("orderEditForm.sellerId")
+          <tr>
+              <td>卖家ID</td>
               <td>
                   <input class="form-control" type="text" name="${status.expression}" value="$!status.value" />
                   #foreach($error in $status.errorMessages) <b>$error</b>  #end

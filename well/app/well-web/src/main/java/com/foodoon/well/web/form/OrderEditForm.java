@@ -3,7 +3,7 @@ package com.foodoon.well.web.form;
 import com.foodoon.well.dao.domain.OrderDO;
 
 
-public class OrderEditForm extends OrderForm {
+public class OrderEditForm extends OrderForm{
 
     private Integer id;
 
@@ -15,20 +15,21 @@ public class OrderEditForm extends OrderForm {
         this.id = id;
     }
 
-    public OrderDO toDO() {
-        OrderDO orderDO = super.toDO();
+    public OrderDO toDO(){
+        OrderDO orderDO  =super.toDO();
         orderDO.setId(this.id);
         return orderDO;
     }
 
-    public void initForm(OrderDO orderDO) {
-        if (orderDO == null) {
-            return;
-        }
-        this.setGoodsId(orderDO.getGoodsId());
-        this.setUserId(orderDO.getUserId());
-        this.setLeaveMsg(orderDO.getLeaveMsg());
-        this.setDeliveryTime(orderDO.getDeliveryTime());
+    public void initForm(OrderDO orderDO){
+        if(orderDO == null){
+        return ;
     }
+    this.setGoodsId(orderDO.getGoodsId());
+    this.setLeaveMsg(orderDO.getLeaveMsg());
+    this.setDeliveryTime(orderDO.getDeliveryTime());
+    this.setBuyerId(orderDO.getBuyerId());
+    this.setSellerId(orderDO.getSellerId());
+}
 
 }

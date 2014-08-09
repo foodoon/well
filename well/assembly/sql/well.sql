@@ -150,7 +150,8 @@ DROP TABLE IF EXISTS `well_order`;
 CREATE TABLE `well_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `goods_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `buyer_id` int(11) NOT NULL,
+  `seller_id` int(11) NOT NULL,
   `delivery_time` datetime DEFAULT NULL,
   `leave_msg` varchar(1024) DEFAULT NULL,
   `is_deleted` int(11) NOT NULL DEFAULT '0',
