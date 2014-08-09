@@ -3,6 +3,7 @@ package com.foodoon.well.biz.service;
 import com.foodoon.tools.web.page.BizResult;
 import com.foodoon.well.dao.domain.GoodsDO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,7 +23,11 @@ public interface GoodsService {
 
     public BizResult queryOrderListBySeller(String sid,int pageNo,int pageSize);
 
-    public BizResult buy(String sid,int id);
+    public BizResult buy(String sid,int goodsId,Date deliveryTime,String leaveMsg);
 
-    public BizResult cancelBuy(String sid,int tradeId);
+    public BizResult cancelBuy(String sid,int orderId);
+
+    public BizResult confirmBuy(String sid,int orderId);
+
+    public BizResult confirmGoods(String sid,int orderId);
 }

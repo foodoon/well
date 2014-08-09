@@ -8,6 +8,7 @@
               <th>配送时间</th>
               <th>买家ID</th>
               <th>卖家ID</th>
+              <th>订单状态</th>
           <th>操作</th>
  </tr>
     </thead>
@@ -18,6 +19,7 @@
                <td> $!f.deliveryTime</td>
                <td> $!f.buyerId</td>
                <td> $!f.sellerId</td>
+               <td> $!f.status</td>
           <td><a href="$!homeServer.getURI("order/edit.htm").addQueryData('id',"$!f.id")" >编辑</a></td>
     <td><a href="$!homeServer.getURI("order/detail.htm").addQueryData('id',"$!f.id")" >查看详情</a></td>
       <td><a href="$!homeServer.getURI("order/doDelete.htm").addQueryData('id',"$!f.id")" onclick="return confirm('确定删除吗?')">删除</a></td>

@@ -59,5 +59,8 @@ public class CommonResultCode {
 
     public static final String CHALLENGE_APPLY_NOT_EXIST = "CHALLENGE_APPLY_NOT_EXIST";
 
+    public static final String ORDER_NOT_EXIST = "ORDER_NOT_EXIST";
+    public static final String ORDER_STATUS_ERROR = "ORDER_STATUS_ERROR";
+
 
 }

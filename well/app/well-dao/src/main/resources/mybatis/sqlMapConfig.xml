@@ -3,8 +3,6 @@
 <configuration>
  <mappers>
   <mapper resource="mybatis/ChallengeDOMapper.xml"/>
-  <mapper resource="mybatis/ChallengeAcceptDOMapper.xml"/>
-  <mapper resource="mybatis/ChallengeMsgDOMapper.xml"/>
   <mapper resource="mybatis/CourtDOMapper.xml"/>
   <mapper resource="mybatis/CourtApplyDOMapper.xml"/>
   <mapper resource="mybatis/GoodsDOMapper.xml"/>

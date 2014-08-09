@@ -154,6 +154,7 @@ CREATE TABLE `well_order` (
   `seller_id` int(11) NOT NULL,
   `delivery_time` datetime DEFAULT NULL,
   `leave_msg` varchar(1024) DEFAULT NULL,
+   `status` int(11) DEFAULT '0',
   `is_deleted` int(11) NOT NULL DEFAULT '0',
   `gmt_modify` datetime NOT NULL,
   `gmt_create` datetime NOT NULL,

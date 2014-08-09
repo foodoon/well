@@ -35,4 +35,11 @@ $!order详情
               </td>
           </tr>
 
+                <tr>
+              <td>订单状态</td>
+              <td>
+                  $!orderDO.status
+              </td>
+          </tr>
+
         </table>

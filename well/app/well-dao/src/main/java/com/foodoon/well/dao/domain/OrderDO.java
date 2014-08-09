@@ -20,7 +20,8 @@ public class OrderDO {
     private Integer buyerId;
     @GenField(cn="卖家ID",order=1,inSearchForm = false,canNull = false)
     private Integer sellerId;
-
+    @GenField(cn="订单状态",order=1,inSearchForm = false,canNull = false)
+    private Integer status;
 
     private Integer isDeleted;
 
@@ -74,6 +75,14 @@ public class OrderDO {
 
     public void setLeaveMsg(String leaveMsg) {
         this.leaveMsg = leaveMsg == null ? null : leaveMsg.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getIsDeleted() {

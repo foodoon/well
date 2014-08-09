@@ -45,6 +45,17 @@
                 <ref local="challenge.create"></ref>
                 <ref local="challenge.delete"></ref>
 
+                <ref local="goods.confirmGoods"></ref>
+                <ref local="goods.confirmBuy"></ref>
+                <ref local="goods.cancelBuy"></ref>
+                <ref local="goods.buy"></ref>
+                <ref local="goods.queryOrderListBySeller"></ref>
+                <ref local="goods.queryOrderListByBuyer"></ref>
+                <ref local="goods.queryListByCourtId"></ref>
+                <ref local="goods.delete"></ref>
+                <ref local="goods.update"></ref>
+                <ref local="goods.create"></ref>
+
             </list>
         </property>
     </bean>
@@ -503,4 +514,130 @@
             </map>
         </property>
     </bean>
+
+    <bean id="goods.create" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.create"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="goodsName" value="商品名称"></entry>
+                <entry key="goodsDesc" value="商品描述"></entry>
+                <entry key="price" value="价格（单位分）"></entry>
+                <entry key="courtId" value="场地ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.update" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.update"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="goodsName" value="商品名称"></entry>
+                <entry key="goodsDesc" value="商品描述"></entry>
+                <entry key="price" value="价格（单位分）"></entry>
+                <entry key="courtId" value="场地ID"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="goods.delete" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.delete"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="goodsId" value="商品ID"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.queryListByCourtId" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.queryListByCourtId"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数(可为空，默认20)"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.queryOrderListByBuyer" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.queryOrderListByBuyer"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数(可为空，默认20)"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.queryOrderListBySeller" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.queryOrderListBySeller"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="pageNo" value="页码"></entry>
+                <entry key="pageSize" value="每页记录数(可为空，默认20)"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.buy" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.buy"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="goodsId" value="商品ID"></entry>
+                <entry key="deliveryTime" value="送货时间yyyyMMddHHmmss"></entry>
+                <entry key="leaveMsg" value="留言"></entry>
+
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.cancelBuy" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.cancelBuy"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="orderId" value="订单ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.confirmBuy" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.confirmBuy"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="orderId" value="订单ID"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="goods.confirmGoods" class="com.foodoon.well.biz.entity.ApiDefine">
+        <property name="apiName" value="goods.confirmGoods"></property>
+        <property name="apiVersion" value="1.0"></property>
+        <property name="params">
+            <map>
+                <entry key="userName" value="登录名"></entry>
+                <entry key="password" value="密码"></entry>
+                <entry key="orderId" value="订单ID"></entry>
+            </map>
+        </property>
+    </bean>
+
 </beans>
