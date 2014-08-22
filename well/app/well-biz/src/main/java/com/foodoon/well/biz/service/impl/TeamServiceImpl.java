@@ -17,6 +17,7 @@ import com.foodoon.well.util.AppRequestParam;
 import com.foodoon.well.util.BizResultHelper;
 import com.foodoon.well.util.CommonResultCode;
 import com.foodoon.well.util.enums.ApplyStatusEnum;
+import com.foodoon.well.util.enums.TeamTypeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,6 +121,9 @@ public class TeamServiceImpl implements TeamService{
     public BizResult create(@AppRequestParam("sid") String sid, TeamDO teamDO) {
         if(!StringUtils.hasText(sid) || teamDO == null || !StringUtils.hasText(teamDO.getName())){
               return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        if(TeamTypeEnum.getByValue(teamDO.getTeamType()) == null){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_ERROR);
         }
         BizResult bizResult = sessionBiz.checkSession(sid);
         if(!bizResult.success) {

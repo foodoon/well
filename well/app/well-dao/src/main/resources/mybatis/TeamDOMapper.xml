@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="team_type" jdbcType="VARCHAR" property="teamType" />
     <result column="team_desc" jdbcType="VARCHAR" property="teamDesc" />
     <result column="can_join" jdbcType="INTEGER" property="canJoin" />
     <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
@@ -41,7 +42,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, name, team_desc, can_join, is_deleted, gmt_modify, gmt_create
+    id, user_id, name, team_type, team_desc, can_join, is_deleted, gmt_modify, gmt_create
   </sql>
   <select id="selectByExample" parameterType="com.foodoon.well.dao.domain.TeamDOCriteria" resultMap="BaseResultMap">
     select
@@ -74,12 +75,12 @@
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into well_team (user_id, name, team_desc, 
-      can_join, is_deleted, gmt_modify, 
-      gmt_create)
-    values (#{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{teamDesc,jdbcType=VARCHAR}, 
-      #{canJoin,jdbcType=INTEGER}, #{isDeleted,jdbcType=INTEGER}, #{gmtModify,jdbcType=TIMESTAMP}, 
-      #{gmtCreate,jdbcType=TIMESTAMP})
+    insert into well_team (user_id, name, team_type, 
+      team_desc, can_join, is_deleted, 
+      gmt_modify, gmt_create)
+    values (#{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{teamType,jdbcType=VARCHAR}, 
+      #{teamDesc,jdbcType=VARCHAR}, #{canJoin,jdbcType=INTEGER}, #{isDeleted,jdbcType=INTEGER}, 
+      #{gmtModify,jdbcType=TIMESTAMP}, #{gmtCreate,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.foodoon.well.dao.domain.TeamDO">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -92,6 +93,9 @@
       </if>
       <if test="name != null">
         name,
+      </if>
+      <if test="teamType != null">
+        team_type,
       </if>
       <if test="teamDesc != null">
         team_desc,
@@ -115,6 +119,9 @@
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="teamType != null">
+        #{teamType,jdbcType=VARCHAR},
       </if>
       <if test="teamDesc != null">
         #{teamDesc,jdbcType=VARCHAR},
@@ -148,6 +155,9 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="teamType != null">
+        team_type = #{teamType,jdbcType=VARCHAR},
+      </if>
       <if test="teamDesc != null">
         team_desc = #{teamDesc,jdbcType=VARCHAR},
       </if>
@@ -170,6 +180,7 @@
     update well_team
     set user_id = #{userId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
+      team_type = #{teamType,jdbcType=VARCHAR},
       team_desc = #{teamDesc,jdbcType=VARCHAR},
       can_join = #{canJoin,jdbcType=INTEGER},
       is_deleted = #{isDeleted,jdbcType=INTEGER},
@@ -177,6 +188,7 @@
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 
 
 </mapper>

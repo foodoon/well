@@ -192,6 +192,7 @@ CREATE TABLE `well_team` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
+  `team_type` varchar(64) NOT NULL,
   `team_desc` varchar(1024) DEFAULT NULL,
   `can_join` int(11) DEFAULT NULL,
   `is_deleted` int(11) DEFAULT '0',

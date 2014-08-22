@@ -13,6 +13,7 @@ import com.foodoon.well.dao.UserDOMapper;
 import com.foodoon.well.dao.domain.*;
 import com.foodoon.well.util.*;
 import com.foodoon.well.util.enums.ApplyStatusEnum;
+import com.foodoon.well.util.enums.CourtTypeEnum;
 import com.foodoon.well.util.enums.OpenTimeEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,6 +50,9 @@ public class CourtServiceImpl implements CourtService {
                 || !StringUtils.hasText(courtDO.getOpenTime())
                 || !StringUtils.hasText(courtDO.getType())) {
             return BizResultHelper.newResultCode(CommonResultCode.PARAM_MISS);
+        }
+        if(CourtTypeEnum.getByValue(courtDO.getType()) == null){
+            return BizResultHelper.newResultCode(CommonResultCode.PARAM_ERROR);
         }
         BizResult bizResult = sessionBiz.checkSession(sid);
         if (!bizResult.success) {

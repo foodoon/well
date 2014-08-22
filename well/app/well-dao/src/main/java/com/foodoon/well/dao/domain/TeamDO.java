@@ -18,6 +18,9 @@ public class TeamDO {
     @GenField(cn="用户ID",order=1,inSearchForm = false,canNull = false)
     private Integer userId;
 
+    @GenField(cn="球队类型",order=1,inSearchForm = false,canNull = false)
+    private String teamType;
+
 
     private Integer isDeleted;
 
@@ -47,6 +50,14 @@ public class TeamDO {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getTeamType() {
+        return teamType;
+    }
+
+    public void setTeamType(String teamType) {
+        this.teamType = teamType == null ? null : teamType.trim();
     }
 
     public String getTeamDesc() {
